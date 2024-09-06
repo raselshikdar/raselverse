@@ -51,16 +51,13 @@ const { remarkPluginFrontmatter } = await render()
         />
       )
     }
-
-    <FormattedDate class='min-w-[95px] py-1 text-xs' date={postDate} />
-
+    {!detailed && (
+      <FormattedDate class='min-w-[95px] py-1 text-xs' date={postDate} />
+    )}
     <Tag class='z-10 flex-grow'>
-      <!-- title -->
-      <div class='flex justify-between'>
-        <div>
-          {data.draft && <span class='text-red-500'>(Draft) </span>}
-          {data.title}
-        </div>
+      <!-- 标题 -->
+      <h2 class="flex items-center justify-between">
+        <span class="flex-grow pr-2">{data.title}</span>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='16'
@@ -70,66 +67,49 @@ const { remarkPluginFrontmatter } = await render()
           stroke-width='2.5'
           stroke-linecap='round'
           stroke-linejoin='round'
-          class='my-1 stroke-muted-foreground group-hover/link:stroke-primary'
-          ><line
+          class='stroke-muted-foreground group-hover/link:stroke-primary'
+        >
+          <line
             x1='5'
             y1='12'
             x2='19'
             y2='12'
             class='translate-x-4 scale-x-0 transition-all duration-300 ease-in-out group-hover/link:translate-x-1 group-hover/link:scale-x-100'
-          ></line><polyline
+          ></line>
+          <polyline
             points='12 5 19 12 12 19'
             class='translate-x-0 transition-all duration-300 ease-in-out group-hover/link:translate-x-1'
-          ></polyline></svg
-        >
-      </div>
-      {
-        detailed && (
-          <>
-            {/* desc */}
-            <p
-              class={cn(
-                'line-clamp-2 pt-1 text-sm text-muted-foreground sm:line-clamp-3',
-                data.coverImage && 'sm:me-24'
-              )}
-            >
-              {data.description}
-            </p>
-            <div class='flex items-center gap-2 py-1.5 text-sm italic leading-4 text-muted-foreground sm:py-3'>
-              {/* reading time */}
-              <span class='flex items-center gap-1'>
-                <svg class='size-4'>
-                  <use href='/icons/ui.svg#mingcute-time-line' />
-                </svg>
-                {remarkPluginFrontmatter.minutesRead}
-              </span>
-              {/* language */}
-              {data.language && (
-                <span class='flex items-center gap-1'>
-                  <svg class='size-4'>
-                    <use href='/icons/project.svg#mingcute-earth-2-line' />
-                  </svg>
-                  {data.language}
-                </span>
-              )}
-            </div>
-          </>
-        )
-      }
+          ></polyline>
+        </svg>
+      </h2>
+      
+      <!-- 描述 -->
+      {detailed && (
+        <p class="text-xs mt-2 text-muted-foreground">
+          {data.description}
+        </p>
+      )}
     </Tag>
   </a>
-  <!-- tags -->
-  {
-    detailed && data.tags && (
-      <ul class='text-bgColor mt-1 flex flex-wrap gap-2'>
-        {data.tags.map((tag: string) => (
-          <li>
-            <Button title={tag} href={`/tags/${tag}`} style='pill' />
-          </li>
-        ))}
-      </ul>
-    )
-  }
+  
+  <!-- 底部信息 -->
+  {detailed && (
+    <div class="mt-auto pt-4 flex justify-between items-end">
+      <div class="text-xs text-muted-foreground">
+        <div>Date: <FormattedDate class='min-w-[95px]' date={postDate} /></div>
+        <div>Reading Time: {remarkPluginFrontmatter.minutesRead}</div>
+      </div>
+      {data.tags && (
+        <ul class='text-bgColor flex flex-wrap gap-2 justify-end'>
+          {data.tags.map((tag: string) => (
+            <li>
+              <Button title={tag} href={`/tags/${tag}`} style='pill' />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )}
 </li>
 
 <style>
