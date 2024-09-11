@@ -108,7 +108,7 @@ code .line::before {
   content: counter(step);
   counter-increment: step;
   color: rgba(115, 138, 148, 0.4);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255);
   @apply sticky left-0 inline-flex w-6 justify-end pr-2;
 }
 

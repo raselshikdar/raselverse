@@ -39,6 +39,10 @@ export const siteConfig: SiteConfig = {
 
 // will be used in Footer.astro
 export const socialLinks: SocialLinks = [
+  // {
+  //   name: 'mail',
+  //   url: 'mailto:test@example.com'
+  // },
   {
     name: 'github',
     url: 'https://github.com/cworld1/theme-astro-pure'

@@ -63,4 +63,4 @@ To spend more time coding and less time fiddling with whitespace, this project u
 
 ## License
 
-This project is licensed under the GPL 3.0 License.
+This project is licensed under the Apache 2.0 License.
