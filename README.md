@@ -78,3 +78,5 @@ To spend more time coding and less time fiddling with whitespace, this project u
 ## License
 
 This project is licensed under the Apache 2.0 License.
+
+[![Star History Chart](https://api.star-history.com/svg?repos=cworld1/astro-theme-pure&type=Date)](https://star-history.com/#cworld1/astro-theme-pure&Date)
