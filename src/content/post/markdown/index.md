@@ -4,7 +4,7 @@ publishDate: 2024-07-26 08:00:00
 description: 'Markdown is a lightweight "markup language."'
 tags:
   - Markdown
-coverImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
+heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
 language: 'English'
 ---
 
