@@ -24,14 +24,16 @@ const { title, headings, info, ...props } = Astro.props
 <PageLayout meta={{ title }} {...props}>
   <div class='w-full'>
     <Button title='Back' href='/' style='back' />
-
-    <div class='mt-8 gap-x-10 lg:flex lg:items-start'>
-      {!!headings?.length && <TOC headings={headings} />}
-      <article
-        class='flex-grow break-words'
-        style='flex-grow: 3; flex-shrink: 1; flex-basis: 60%;'
-        data-pagefind-body
-      >
+    <div class='mt-6 w-full items-start gap-x-10 md:flex'>
+      {
+        !!headings?.length && (
+          <TOC
+            class='animate top-24 z-10 min-w-40 basis-60 max-md:hidden md:sticky md:order-2'
+            headings={headings}
+          />
+        )
+      }
+      <article class='flex-1'>
         <div id='hero'>
           <h1 class='text-2xl font-medium sm:mb-2 sm:text-3xl'>
             {title}
@@ -50,16 +52,19 @@ const { title, headings, info, ...props } = Astro.props
         </div>
         <div
           id='content'
-          class='prose prose-base prose-zinc mt-8 text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none'
+          class='prose prose-base prose-zinc mt-8 max-w-none text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground md:min-w-[45ch]'
         >
           <slot />
         </div>
       </article>
     </div>
-    <div
-      class='prose prose-base prose-zinc mt-8 text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none'
-    >
-      <slot name='bottom' />
+    <div class='mt-8 w-full items-start gap-x-10 md:flex'>
+      <div class='mt-8 flex-1 text-muted-foreground md:min-w-[50ch]'>
+        <slot name='bottom' />
+      </div>
+      <div class='min-w-40 basis-60'>
+        <slot name='bottom-sidebar' />
+      </div>
     </div>
     <BackToTop header='hero' content='content' />
   </div>

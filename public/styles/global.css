@@ -6,19 +6,18 @@ html.dark {
   color-scheme: dark;
 }
 
+/* Animation */
 .animate {
   opacity: 0;
   transform: translateY(10px);
   transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
-
 .animate.show {
   opacity: 1;
   transform: translateY(0);
 }
-
 @media (prefers-reduced-motion) {
   .animate {
     opacity: 0;
@@ -29,37 +28,21 @@ html.dark {
   }
 }
 
-/* Scroll bar */
-:root {
-  --scrollbar-width: 6px;
-  --scrollbar-bg: #e0e0e0;
-  --scrollbar-thumb-bg: #c0c0c0;
+/* Shiki */
+.astro-code {
+  background-color: transparent !important;
+  & pre {
+    background-color: hsl(var(--primary-foreground));
+    margin: 0 !important;
+  }
 }
-html.dark {
-  --scrollbar-bg: #2e2e2e;
-  --scrollbar-thumb-bg: #4e4e4e;
+.dark {
+  .astro-code pre,
+  .astro-code pre span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg);
+  }
 }
-body::-webkit-scrollbar {
-  height: 0;
-}
-::-webkit-scrollbar {
-  width: 6px !important;
-  height: 6px !important;
-  background: #0000;
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-bg);
-  border-radius: 999px;
-  border: 2px solid var(--scrollbar-thumb-bg);
-  opacity: 0.5;
-}
-::-webkit-scrollbar-corner {
-  background: transparent;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 /* Shiki transformer */
 .astro-code:has(code) {
   position: relative;
@@ -102,4 +85,35 @@ body::-webkit-scrollbar {
   .language {
     opacity: 0;
   }
+}
+
+/* Scroll bar */
+:root {
+  --scrollbar-width: 6px;
+  --scrollbar-bg: #e0e0e0;
+  --scrollbar-thumb-bg: #c0c0c0;
+}
+html.dark {
+  --scrollbar-bg: #2e2e2e;
+  --scrollbar-thumb-bg: #4e4e4e;
+}
+body::-webkit-scrollbar {
+  height: 0;
+}
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background: #0000;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-bg);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-thumb-bg);
+  opacity: 0.5;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }

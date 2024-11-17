@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config'
+
 // Adapter
 // if you want deploy on vercel
 import vercel from '@astrojs/vercel/serverless'
-// ---
 // if you want deploy locally
 // import node from '@astrojs/node'
+// ---
+
 // Integrations
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -15,9 +17,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
-import remarkUnwrapImages from 'remark-unwrap-images'
 import { siteConfig } from './src/site.config.ts'
-import { addCopyButton, addLanguage } from './src/utils/shiki.ts'
+import { addCopyButton, addTitle, addLanguage, updateStyle } from './src/utils/shiki.ts'
 import { remarkGithubCards, remarkReadingTime, remarkArxivCards } from './src/utils/remarkParser.ts'
 
 
@@ -28,21 +29,27 @@ export default defineConfig({
   // base: '/docs',
   trailingSlash: 'never',
   output: 'server',
-  // if you want deploy on vercel
+
+  // Adapter
   adapter: vercel({
     webAnalytics: {
       enabled: true
     }
   }),
-  // ---
   // if you want deploy locally
   // adapter: node({
   //   mode: 'standalone'
   // }),
+  // ---
+
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+  },
+
   integrations: [
-    tailwind({
-      applyBaseStyles: false
-    }),
+    tailwind({ applyBaseStyles: false }),
     sitemap(),
     mdx(),
     icon(),
@@ -62,7 +69,6 @@ export default defineConfig({
   // Markdown Options
   markdown: {
     remarkPlugins: [
-      remarkUnwrapImages,
       remarkMath,
       remarkReadingTime,
       remarkAlert,
@@ -80,17 +86,14 @@ export default defineConfig({
         }
       ]
     ],
-    remarkRehype: {
-      footnoteLabelProperties: {
-        className: ['']
-      }
-    },
+    // remarkRehype: { },
+    // https://docs.astro.build/en/guides/syntax-highlighting/
     shikiConfig: {
       themes: {
-        dark: 'github-dark',
-        light: 'github-light'
+        light: 'github-light',
+        dark: 'github-dark'
       },
-      transformers: [addLanguage(), addCopyButton(2000)]
+      transformers: [updateStyle(), addTitle(), addLanguage(), addCopyButton(2000)]
     }
   }
 })

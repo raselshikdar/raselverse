@@ -1,6 +1,7 @@
 import type { SiteConfig, MenuLinks, SocialLinks } from '@/types'
 
 export const siteConfig: SiteConfig = {
+  // === Required meta properties ===
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
   author: 'CWorld / Arthals',
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
@@ -22,14 +23,20 @@ export const siteConfig: SiteConfig = {
       year: 'numeric'
     }
   },
-  // Customize
-  pageSize: 8,
-  externalLinkArrow: true,
+
+  // === Customize options ===
+  pageSize: 8, // blog page size for pagination
+  externalLinkArrow: true, // show external link arrow
+  // Registration information for ICP (optional)
   registration: {
     url: 'https://icp.gov.moe/?keyword=APTX4869',
     text: '萌ICP备APTX4869号'
   },
+
+  // Comment system service backend link
   walineServerUrl: 'https://astro-theme-pure-waline.arthals.ink',
+
+  // Link info
   applyFriendTip: {
     name: 'Astro Theme Pure',
     slogan: '求知若愚，虚怀若谷',
@@ -38,7 +45,7 @@ export const siteConfig: SiteConfig = {
   }
 }
 
-// will be used in Footer.astro
+// Will be used in Footer.astro
 export const socialLinks: SocialLinks = [
   // {
   //   name: 'mail',

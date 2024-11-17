@@ -1,15 +1,17 @@
 import type { AstroGlobal } from 'astro'
 import type { CollectionEntry } from 'astro:content'
-import rss from '@astrojs/rss'
 import { getImage } from 'astro:assets'
+import rss from '@astrojs/rss'
 
 import { siteConfig } from '@/site-config'
-import { getAllPosts, sortMDByDate } from '@/utils'
+import { getAllCollections, sortMDByDate } from '@/utils'
 
-import { parse as htmlParser } from 'node-html-parser'
-import sanitizeHtml from 'sanitize-html'
-import MarkdownIt from 'markdown-it'
-const parser = new MarkdownIt()
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { unified } from 'unified'
+import { visit } from 'unist-util-visit'
+import type { Root } from 'mdast'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
@@ -17,34 +19,43 @@ const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
 )
 
 const renderContent = async (post: CollectionEntry<'post'>, site: URL) => {
-  const html = htmlParser.parse(parser.render(post.body))
-
-  for (const img of html.querySelectorAll('img')) {
-    const src = img.getAttribute('src')!
-    // Relative paths that are optimized by Astro build
-    if (src.startsWith('/images')) {
-      // Images starting with `/images/` is the public dir
-      img.setAttribute('src', `${site}${src.replace('/', '')}`)
-    } else {
-      const imagePathPrefix = `/src/content/post/${post.slug}/${src.replace('./', '')}`
-      // Call the dynamic import and return the module
-      const imagePath = await imagesGlob[imagePathPrefix]?.()?.then((res) => res.default)
-      if (imagePath) {
-        img.setAttribute(
-          'src',
-          `${site}${(await getImage({ src: imagePath })).src.replace('/', '')}`
-        )
-      }
+  // Replace image links with the correct path
+  function remarkReplaceImageLink() {
+    /**
+     * @param {Root} tree
+     */
+    return async function (tree: Root) {
+      const promises: Promise<void>[] = []
+      visit(tree, 'image', (node) => {
+        if (node.url.startsWith('/images')) {
+          node.url = `${site}${node.url.replace('/', '')}`
+        } else {
+          const imagePathPrefix = `/src/content/post/${post.slug}/${node.url.replace('./', '')}`
+          const promise = imagesGlob[imagePathPrefix]?.().then(async (res) => {
+            const imagePath = res?.default
+            if (imagePath) {
+              node.url = `${site}${(await getImage({ src: imagePath })).src.replace('/', '')}`
+            }
+          })
+          if (promise) promises.push(promise)
+        }
+      })
+      await Promise.all(promises)
     }
   }
 
-  return sanitizeHtml(html.toString(), {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-  })
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkReplaceImageLink)
+    .use(remarkRehype)
+    .use(rehypeStringify)
+    .process(post.body)
+
+  return String(file)
 }
 
 const GET = async (context: AstroGlobal) => {
-  const allPostsByDate = sortMDByDate(await getAllPosts())
+  const allPostsByDate = sortMDByDate(await getAllCollections())
   const siteUrl = context.site ?? new URL(import.meta.env.SITE)
 
   return rss({
@@ -61,10 +72,8 @@ const GET = async (context: AstroGlobal) => {
       allPostsByDate.map(async (post) => ({
         pubDate: post.data.publishDate,
         link: `/blog/${post.slug}`,
-        customData: `
-                <h:img src="${typeof post.data.coverImage?.src === 'string' ? post.data.coverImage?.src : post.data.coverImage?.src.src}" />
-                <enclosure url="${typeof post.data.coverImage?.src === 'string' ? post.data.coverImage?.src : post.data.coverImage?.src.src}" />
-            `,
+        customData: `<h:img src="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />
+          <enclosure url="${typeof post.data.heroImage?.src === 'string' ? post.data.heroImage?.src : post.data.heroImage?.src.src}" />`,
         content: await renderContent(post, siteUrl),
         ...post.data
       }))
