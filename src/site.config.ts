@@ -2,9 +2,9 @@ import type { SiteConfig, MenuLinks, SocialLinks } from '@/types'
 
 export const siteConfig: SiteConfig = {
   // Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-  author: 'CWorld / Arthals',
+  author: 'Horizon Moon',
   // Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-  title: 'Astro Theme Pure',
+  title: 'My Blog',
   // Meta property used to generate your sitemap and canonical URLs in your final build
   site: 'https://astro-theme-pure.vercel.app',
   // Meta property used as the default description meta property
@@ -12,10 +12,10 @@ export const siteConfig: SiteConfig = {
   // HTML lang property, found in src/layouts/Base.astro L:18
   lang: 'zh-CN, en-US',
   // Meta property, found in src/components/BaseHead.astro L:42
-  ogLocale: 'en_US',
+  ogLocale: 'zh-CN',
   // Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
   date: {
-    locale: 'en-US',
+    locale: 'zh-CN',
     options: {
       day: 'numeric',
       month: 'short',
