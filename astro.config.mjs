@@ -77,7 +77,6 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    // @ts-ignore
     remarkPlugins: [
       remarkMath,
       remarkReadingTime,
