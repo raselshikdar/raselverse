@@ -1,7 +1,7 @@
 {
-  "name": "astro-blog",
+  "name": "astro-theme-pure",
   "type": "module",
-  "version": "0.0.1",
+  "version": "3.1.1",
   "packageManager": "bun@1.1.20",
   "scripts": {
     "dev": "astro check --watch & astro dev",
