@@ -1,8 +1,8 @@
 ---
-import SpeedInsights from '@vercel/speed-insights/astro'
+// import { ViewTransitions } from 'astro:transitions'
 import type { SiteMeta } from '@/types'
 import { siteConfig } from '@/site-config'
-const isProd = import.meta.env.PROD
+import { prod } from '@/utils'
 
 type Props = SiteMeta
 
@@ -91,32 +91,12 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.png', As
 {/* Styles */}
 <link rel='stylesheet' href='/styles/global.css' />
 
-{/* Transitions */}
-<script>
-  import type { TransitionBeforeSwapEvent } from 'astro:transitions/client'
-  document.addEventListener('astro:before-swap', (e) =>
-    [
-      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll('link[as="font"]')
-    ].forEach((link) => link.remove())
-  )
+{/* View transitions */}
+<!-- <ViewTransitions /> -->
 
-  function animate() {
-    document.querySelectorAll('.animate').forEach((el, i) => {
-      setTimeout(() => {
-        el.classList.add('show')
-      }, i * 150)
-    })
-  }
-  document.addEventListener('DOMContentLoaded', animate)
-  document.addEventListener('astro:after-swap', animate)
-</script>
-
-{/* Vercel speed insights */}
-{isProd && <SpeedInsights />}
-
-{/* user script */}
 {
-  isProd && (
+  /* User script*/
+  prod && (
     <script>
       console.log( '%c Astro Theme Pure %c https://github.com/cworld1/astro-theme-pure/',
       'color:#fff;background:linear-gradient(90deg,#448bff,#44e9ff);padding:5px 0;',

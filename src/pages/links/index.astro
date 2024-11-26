@@ -7,7 +7,6 @@ import Comment from '@/components/Comment.astro'
 import { siteConfig } from '@/site-config'
 
 import links from 'public/links.json'
-import '@/assets/styles/links.css'
 
 const headings = [
   {
@@ -56,7 +55,7 @@ const friendlist = links.friends
   <!-- apply-links -->
   <h2 id='apply-links'>Apply Links</h2>
   <p>本站信息如下：</p>
-  <blockquote class='not-prose border-s-4 ps-4'>
+  <blockquote class='not-prose break-words border-s-4 ps-4'>
     <p>名称：<code>{siteConfig.applyFriendTip.name}</code></p>
     <p>简介：<code>{siteConfig.applyFriendTip.slogan}</code></p>
     <p>链接：<code>{siteConfig.applyFriendTip.url}</code></p>

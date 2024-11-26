@@ -21,8 +21,8 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 
 {
   data.heroImage && (
-    <div class='hero-image animate relative mb-6'>
-      {/* @ts-ignore */}
+    <div class='hero-image relative mb-6'>
+      {/* @ts-expect-error: Image support this type */}
       <Image
         alt={data.heroImage.alt || data.title}
         class='cover-image relative z-10 h-auto w-full max-w-[65ch] rounded-2xl object-contain'
@@ -30,7 +30,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
         loading='eager'
         src={typeof data.heroImage === 'string' ? data.heroImage : (data.heroImage.src as string)}
       />
-      {/* @ts-ignore */}
+      {/* @ts-expect-error: Image support this type */}
       <Image
         alt={data.heroImage.alt || data.title}
         fetchpriority='high'
@@ -47,7 +47,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 
 <div class='article-info animate max-lg:mx-auto'>
   <div class='flex flex-wrap gap-x-4 gap-y-2 text-xs leading-6 text-muted-foreground'>
-    <!-- article date -->
+    {/* Article date */}
     <div class='flex items-center gap-1'>
       <svg class='size-5'>
         <use href='/icons/ui.svg#mingcute-calendar-2-line'></use>
@@ -69,15 +69,15 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
         )
       }
     </div>
-    <!-- times read -->
+    {/* Times read */}
     <div class='flex items-center gap-1'>
       <svg class='size-5'>
         <use href='/icons/ui.svg#mingcute-time-line'></use>
       </svg>
       {remarkPluginFrontmatter.minutesRead}
     </div>
-    <!-- language -->
     {
+      // Language
       data.language && (
         <span class='flex items-center gap-1'>
           <svg class='size-5'>
@@ -94,6 +94,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
   </h1>
 
   {
+    // Tags
     !!data.tags?.length && (
       <div class='mt-3 flex flex-row flex-wrap items-center gap-x-1 text-muted-foreground sm:mt-5'>
         <svg class='size-5'>
@@ -122,6 +123,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
   </div>
 </div>
 
+{/* Dividing line */}
 <div class='mt-4 w-1/2 border-t max-lg:mx-auto sm:mt-6 sm:w-1/3'></div>
 
 <script>

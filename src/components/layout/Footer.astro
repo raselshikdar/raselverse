@@ -31,12 +31,19 @@ const year = new Date().getFullYear()
             </a>
           )
         }
-        <p class=''>© <samp>{year}</samp> {siteConfig.author}. All rights reserved.</p>
+        <div class='text-muted-foreground [&_a:hover]:text-primary [&_a]:text-foreground'>
+          © {year}
+          {siteConfig.author} &
+          <a href='/terms/list' class='text-muted-foreground'>Site policy</a>
+        </div>
+        <div class='text-muted-foreground [&_a:hover]:text-primary [&_a]:text-foreground'>
+          <a href='https://github.com/withastro/astro' target='_blank'>Astro</a> &
+          <a href='https://github.com/cworld1/astro-theme-pure' target='_blank'>Pure</a> theme powered
+        </div>
       </div>
 
       <div class='flex items-center justify-between'>
-        <!-- Social Brands -->
-        <!-- https://icones.js.org/collection/mingcute -->
+        {/* Social Brands */}
         <div class='flex items-center gap-x-4'>
           {
             socialLinks.map((platform) => (
@@ -51,7 +58,7 @@ const year = new Date().getFullYear()
               </a>
             ))
           }
-          <!-- Rss -->
+          {/* Rss */}
           <a
             class='inline-block text-muted-foreground transition-all hover:text-muted-foreground/75'
             href='/rss.xml'
@@ -61,7 +68,6 @@ const year = new Date().getFullYear()
               <use href='/icons/social.svg#mingcute-rss-2-line'></use>
             </svg>
           </a>
-          <!-- End Social Brands -->
         </div>
       </div>
     </div>

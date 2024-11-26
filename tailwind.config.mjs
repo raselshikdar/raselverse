@@ -1,4 +1,5 @@
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import typography from '@tailwindcss/typography'
 
 const typographyConfig = {
   DEFAULT: {
@@ -56,10 +57,10 @@ const typographyConfig = {
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: ['class'],
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: ['class'],
   safelist: ['dark'],
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography()],
 
   theme: {
     container: {

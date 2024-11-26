@@ -1,9 +1,13 @@
+// @ts-check
+
 import { defineConfig } from 'astro/config'
 
 // Adapter
-// if you want deploy on vercel
-import vercel from '@astrojs/vercel/serverless'
-// if you want deploy locally
+// 1. Vercel (serverless)
+import vercelServerless from '@astrojs/vercel/serverless'
+// 2. Vercel (static)
+// import vercelStatic from '@astrojs/vercel/static';
+// 3. Local (standalone)
 // import node from '@astrojs/node'
 // ---
 
@@ -13,14 +17,13 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
 // Markdown
+import { remarkReadingTime, remarkGithubCards, remarkArxivCards } from './src/utils/remarkPlugins.ts'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
 import { siteConfig } from './src/site.config.ts'
-import { addCopyButton, addTitle, addLanguage, updateStyle } from './src/utils/shiki.ts'
-import { remarkGithubCards, remarkReadingTime, remarkArxivCards } from './src/utils/remarkParser.ts'
-
+import { addCopyButton, addTitle, addLanguage, updateStyle } from './src/utils/shikiTransformers.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,15 +34,12 @@ export default defineConfig({
   output: 'server',
 
   // Adapter
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    }
-  }),
-  // if you want deploy locally
-  // adapter: node({
-  //   mode: 'standalone'
-  // }),
+  // 1. Vercel (serverless)
+  adapter: vercelServerless(),
+  // 2. Vercel (static)
+  // adapter: vercelStatic(),
+  // 3. Local (standalone)
+  // adapter: node({ mode: 'standalone' }),
   // ---
 
   image: {
@@ -68,6 +68,7 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
+    // @ts-ignore
     remarkPlugins: [
       remarkMath,
       remarkReadingTime,

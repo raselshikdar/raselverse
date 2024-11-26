@@ -5,8 +5,10 @@ import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListI
 import { fetchGitHubApi, fetchArxivApi } from './api'
 
 export function remarkReadingTime() {
-  // @ts-expect-error:next-line
-  return function (tree, { data }) {
+  return function (
+    tree: Node,
+    { data }: { data: { astro: { frontmatter: { minutesRead: string } } } }
+  ) {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
     // readingTime.text will give us minutes read as a friendly string,

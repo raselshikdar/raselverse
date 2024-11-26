@@ -37,8 +37,12 @@ const { header: headerName, content: contentName, needPercent = true } = Astro.p
   scrollBtn.addEventListener('click', () => {
     document.documentElement.scrollTo({ behavior: 'smooth', top: 0 })
   })
-  const observer = new IntersectionObserver(callback)
-  observer.observe(targetHeader)
+  if (targetHeader) {
+    const observer = new IntersectionObserver(callback)
+    observer.observe(targetHeader)
+  } else {
+    console.error(`Element with ID ${headerName} not found.`)
+  }
 
   if (needPercent) {
     // scroll percentage
@@ -47,7 +51,7 @@ const { header: headerName, content: contentName, needPercent = true } = Astro.p
     const clientHeight = document.documentElement.clientHeight // client height
 
     function calculateScrollPercent() {
-      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop < articleTop) return
       return Math.round(((scrollTop - articleTop) / (scrollHeight - clientHeight)) * 100)
     }

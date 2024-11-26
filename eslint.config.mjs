@@ -1,37 +1,21 @@
-import tsParser from "@typescript-eslint/parser";
-import parser from "astro-eslint-parser";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+// @ts-check
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+import tseslint from 'typescript-eslint'
 
-export default [...compat.extends("plugin:astro/recommended"), {
-    languageOptions: {
-        parser: tsParser,
-        ecmaVersion: "latest",
-        sourceType: "module",
-    },
-}, {
-    files: ["**/*.astro"],
+import eslintPluginAstro from 'eslint-plugin-astro'
 
-    languageOptions: {
-        parser: parser,
-        ecmaVersion: 5,
-        sourceType: "script",
+export default [
+  // For JavaScript and TypeScript files in general
+  { files: ['**/*.{js,mjs,cjs,ts}'] },
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
 
-        parserOptions: {
-            parser: "@typescript-eslint/parser",
-            extraFileExtensions: [".astro"],
-        },
-    },
-
-    rules: {},
-}];
+  // Ignore files
+  {
+    ignores: ['public/scripts/*', 'scripts/*', '.astro/', 'src/env.d.ts']
+  }
+]

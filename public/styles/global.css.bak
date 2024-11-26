@@ -38,15 +38,15 @@ html.dark {
 
 /* Katex */
 span.katex-display {
-  overflow-y: scroll;
-  padding: .5rem;
+overflow-y: scroll;
+padding: .5rem;
 }
 /* Markdown Alert */
 .markdown-alert {
-  margin-top: 1.25rem !important;
+margin-top: 1.25rem !important;
 }
 .markdown-alert-title {
-  margin-top: 0.5rem !important;
+margin-top: 0.5rem !important;
 }
 
 /* Shiki */
