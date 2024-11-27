@@ -2,7 +2,7 @@ import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
 import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListItem } from 'mdast'
-import { fetchGitHubApi, fetchArxivApi } from '@/utils/api'
+import { fetchGitHubApi, fetchArxivApi } from './api'
 
 export function remarkReadingTime() {
   // We don't know the type of `tree` or `data` here, so we'll use `any`
