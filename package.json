@@ -1,7 +1,7 @@
 {
   "name": "astro-theme-pure",
   "type": "module",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "scripts": {
     "dev": "astro dev",
     "dev:check": "astro check --watch & astro dev",
@@ -10,7 +10,8 @@
     "astro": "astro",
     "check": "astro check",
     "format": "prettier --write  '**/*.{js,jsx,ts,tsx,md,mdx,astro}'",
-    "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'"
+    "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'",
+    "yijiansanlian": "bun lint && bun check && bun format"
   },
   "engines": {
     "node": "20.x"

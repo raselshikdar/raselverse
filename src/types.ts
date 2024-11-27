@@ -10,19 +10,35 @@ export interface SiteConfig {
     options: Intl.DateTimeFormatOptions
   }
 
-  pageSize: number
-  externalLinkArrow: boolean
-  registration?: {
-    url: string
-    text: string
+  npmCDN: string
+
+  commonPage: {
+    walineServerUrl: string
   }
 
-  walineServerUrl: string
-  applyFriendTip: {
-    name: string
-    slogan: string
-    url: string
-    avatar: string
+  blog: {
+    pageSize: number
+    externalLinkArrow: boolean
+  }
+
+  footer: {
+    registration?: {
+      url: string
+      text: string
+    }
+  }
+
+  links: {
+    applyTip: {
+      name: string
+      desc: string
+      url: string
+      avatar: string
+    }
+  }
+
+  seo: {
+    telegramChannel: string
   }
 }
 

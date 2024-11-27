@@ -24,24 +24,46 @@ export const siteConfig: SiteConfig = {
     }
   },
 
+  // Mirror (remove ending trailing slash)
+  npmCDN: 'https://cdn.jsdelivr.net/npm',
+  // Recommend:
+  // - https://cdn.jsdelivr.net/npm
+  // - https://cdn.smartcis.cn/npm
+  // - https://unkpg.com
+
   // === Customize options ===
-  pageSize: 8, // blog page size for pagination
-  externalLinkArrow: true, // show external link arrow
-  // Registration information for ICP (optional)
-  registration: {
-    url: 'https://icp.gov.moe/?keyword=APTX4869',
-    text: '萌ICP备APTX4869号'
+  commonPage: {
+    // Comment system service backend link
+    walineServerUrl: 'https://astro-theme-pure-waline.arthals.ink'
   },
 
-  // Comment system service backend link
-  walineServerUrl: 'https://astro-theme-pure-waline.arthals.ink',
+  blog: {
+    pageSize: 8, // blog page size for pagination
+    externalLinkArrow: true // show external link arrow
+  },
 
-  // Link info
-  applyFriendTip: {
-    name: 'Astro Theme Pure',
-    slogan: '求知若愚，虚怀若谷',
-    url: 'https://astro-theme-pure.vercel.app/',
-    avatar: 'https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200'
+  footer: {
+    // Registration information for ICP (optional)
+    registration: {
+      url: 'https://icp.gov.moe/?keyword=APTX4869',
+      text: '萌ICP备APTX4869号'
+    }
+  },
+
+  links: {
+    // Link info
+    applyTip: {
+      name: 'Astro Theme Pure',
+      desc: '求知若愚，虚怀若谷',
+      url: 'https://astro-theme-pure.vercel.app/',
+      avatar: 'https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200'
+    }
+  },
+
+  seo: {
+    // Telegram channel (Only to link with telegram instant view.
+    // If you don't know what it is, you can ignore it)
+    // telegramChannel: '@cworld0_cn'
   }
 }
 
