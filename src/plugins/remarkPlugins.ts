@@ -2,7 +2,7 @@ import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
 import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListItem } from 'mdast'
-import { fetchGitHubApi, fetchArxivApi } from './api'
+import { fetchGitHubApi, fetchArxivApi } from '@/utils/api'
 
 export function remarkReadingTime() {
   // We don't know the type of `tree` or `data` here, so we'll use `any`
@@ -38,11 +38,13 @@ const initGitHubCard = async (
         const data = await fetchGitHubApi(`https://api.github.com/repos/${owner}/${repo}`)
         // sleep 1 second to avoid rate limit
         await new Promise((resolve) => setTimeout(resolve, 1000))
-        const languagePart = data.language ? `<span class="flex items-center text-gray-700 dark:text-gray-400">
+        const languagePart = data.language
+          ? `<span class="flex items-center text-gray-700 dark:text-gray-400">
               <span class="mr-2 inline-block h-3 w-3 rounded-full bg-gray-700 dark:bg-slate-100"
               ></span>
               ${data.language}
-            </span>` : ''
+            </span>`
+          : ''
 
         const newNode: Html = {
           type: 'html',

@@ -20,6 +20,10 @@ export { generateToc } from './generateToc'
 export type { TocItem } from './generateToc'
 
 // Link Preview
-export { safeGetDOM, parseOpenGraph } from './link-preview'
+export { safeGetDOM, parseOpenGraph } from './linkPreview'
 
-export { fetchGitHubApi, fetchArxivApi } from './api'
+// Theme
+export { getTheme, listenThemeChange, setTheme } from './theme'
+
+// Toast
+export { showToast } from './toast'
