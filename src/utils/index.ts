@@ -27,3 +27,6 @@ export { getTheme, listenThemeChange, setTheme } from './theme'
 
 // Toast
 export { showToast } from './toast'
+
+// API
+export { fetchGitHubApi, fetchArxivApi } from './api'

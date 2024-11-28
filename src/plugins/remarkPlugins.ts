@@ -1,18 +1,18 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
-import { visit } from 'unist-util-visit'
+import type { Plugin } from 'unified'
 import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListItem } from 'mdast'
-import { fetchGitHubApi, fetchArxivApi } from './api'
+import { visit } from 'unist-util-visit'
+import { fetchGitHubApi, fetchArxivApi } from '../utils/api'
 
-export function remarkReadingTime() {
-  // We don't know the type of `tree` or `data` here, so we'll use `any`
-  // @ts-expect-error:next-line
+export const remarkReadingTime: Plugin<[], Root> = function () {
   return function (tree, { data }) {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
     // readingTime.text will give us minutes read as a friendly string,
     // i.e. "3 min read"
-    data.astro.frontmatter.minutesRead = readingTime.text
+    const astroData = data as { astro: { frontmatter: { minutesRead: string } } }
+    astroData.astro.frontmatter.minutesRead = readingTime.text
   }
 }
 
