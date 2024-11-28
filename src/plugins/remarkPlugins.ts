@@ -5,13 +5,7 @@ import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListI
 import { visit } from 'unist-util-visit'
 import { fetchGitHubApi, fetchArxivApi } from '../utils/api'
 
-<<<<<<<< HEAD:src/plugins/remarkPlugins.ts
 export const remarkReadingTime: Plugin<[], Root> = function () {
-========
-export function remarkReadingTime() {
-  // We don't know the type of `tree` or `data` here, so we'll use `any`
-  // @ts-expect-error:next-line
->>>>>>>> main:src/utils/remarkPlugins.ts
   return function (tree, { data }) {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
