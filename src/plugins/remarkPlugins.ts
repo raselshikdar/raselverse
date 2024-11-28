@@ -1,7 +1,16 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import type { Plugin } from 'unified'
-import type { Root, Paragraph, Link, Html, Blockquote, FootnoteDefinition, ListItem } from 'mdast'
+import type {
+  Root,
+  Node,
+  Paragraph,
+  Link,
+  Html,
+  Blockquote,
+  FootnoteDefinition,
+  ListItem
+} from 'mdast'
 import { visit } from 'unist-util-visit'
 import { fetchGitHubApi, fetchArxivApi } from '../utils/api'
 
@@ -13,6 +22,14 @@ export const remarkReadingTime: Plugin<[], Root> = function () {
     // i.e. "3 min read"
     const astroData = data as { astro: { frontmatter: { minutesRead: string } } }
     astroData.astro.frontmatter.minutesRead = readingTime.text
+  }
+}
+
+export const remarkAddZoomable: Plugin<[string], Root> = function (className = 'zoomable') {
+  return function (tree) {
+    visit(tree, 'image', (node: Node) => {
+      node.data = { hProperties: { class: className } }
+    })
   }
 }
 
