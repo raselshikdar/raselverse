@@ -17,7 +17,11 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
 // Markdown
-import { remarkReadingTime, remarkGithubCards, remarkArxivCards } from './src/plugins/remarkPlugins.ts'
+import {
+  remarkReadingTime,
+  remarkGithubCards,
+  remarkArxivCards
+} from './src/plugins/remarkPlugins.ts'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import { remarkAlert } from 'remark-github-blockquote-alert'
@@ -50,7 +54,7 @@ export default defineConfig({
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp'
-    },
+    }
   },
 
   integrations: [

@@ -120,6 +120,10 @@ import { siteConfig, menuLinks } from '@/site-config'
         preScrollY = window.scrollY
       })
 
+      // Menu
+      this.querySelector('#toggleMenu')?.addEventListener('click', () => {
+        this.classList.toggle('expanded')
+      })
       // Dark Mode
       const darkModeBtn = this.querySelector('#toggleDarkMode') as HTMLElement
       darkModeBtn.addEventListener('click', () => {

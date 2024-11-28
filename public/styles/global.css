@@ -39,7 +39,7 @@ html.dark {
 /* Katex */
 span.katex-display {
   overflow-y: scroll;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 /* Markdown Alert */
 .markdown-alert {
