@@ -1,5 +1,5 @@
 import getReadingTime from 'reading-time'
-import { toString } from 'mdast-util-to-string'
+import toString from './mdastUtilToString'
 import { visit } from 'unist-util-visit'
 import type { Plugin } from 'unified'
 import type {
