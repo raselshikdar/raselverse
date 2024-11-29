@@ -91,7 +91,7 @@ export default defineConfig({
       [
         rehypeExternalLinks,
         {
-          ...(siteConfig.blog.externalLinkArrow && { content: { type: 'text', value: ' ↗' } }),
+          ...(siteConfig.content.externalLinkArrow && { content: { type: 'text', value: ' ↗' } }),
           target: '_blank',
           rel: ['nofollow, noopener, noreferrer']
         }

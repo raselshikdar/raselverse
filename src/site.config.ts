@@ -34,8 +34,7 @@ export const siteConfig: SiteConfig = {
 
   // === Customize options ===
   blog: {
-    pageSize: 8, // blog page size for pagination
-    externalLinkArrow: true // show external link arrow
+    pageSize: 8 // blog page size for pagination
   },
 
   links: {
@@ -52,6 +51,9 @@ export const siteConfig: SiteConfig = {
     // Telegram channel (Only to link with telegram instant view.
     // If you don't know what it is, you can ignore it)
     // telegramChannel: '@cworld0_cn'
+  },
+  content: {
+    externalLinkArrow: true // show external link arrow
   }
 }
 
