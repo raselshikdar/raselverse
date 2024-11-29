@@ -2,6 +2,8 @@
 export { default as Card } from './Card.astro'
 export { default as Collapse } from './Collapse.astro'
 export { default as Aside } from './Aside.astro'
+export { default as Tabs } from './Tabs.astro'
+export { default as TabItem } from './TabItem.astro'
 
 // List
 export { default as CardList } from './CardList.astro'
