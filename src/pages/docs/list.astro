@@ -4,6 +4,8 @@ export const prerender = true
 import { Button, CardList } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import { docs } from './contents'
+import { cn } from '@/utils'
+import { siteConfig } from '@/site-config'
 
 const meta = {
   title: 'Docs content',
@@ -20,7 +22,7 @@ const meta = {
 
     <div
       id='content'
-      class='animate prose prose-base prose-zinc mt-8 max-w-none text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground md:min-w-[45ch]'
+      class={cn('animate mt-8 max-w-none md:min-w-[45ch]', siteConfig.content.typographyProse)}
     >
       <h2 class='text-xl font-medium'>Theme documentation</h2>
       <CardList {...docs} />

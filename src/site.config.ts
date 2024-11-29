@@ -53,7 +53,9 @@ export const siteConfig: SiteConfig = {
     // telegramChannel: '@cworld0_cn'
   },
   content: {
-    externalLinkArrow: true // show external link arrow
+    externalLinkArrow: true, // show external link arrow
+    // https://github.com/tailwindlabs/tailwindcss-typography
+    typographyProse: 'prose prose-pure dark:prose-invert dark:prose-pure prose-headings:font-medium'
   }
 }
 

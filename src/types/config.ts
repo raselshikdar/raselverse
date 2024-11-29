@@ -33,6 +33,7 @@ export interface SiteConfig {
 
   content: {
     externalLinkArrow: boolean
+    typographyProse: string
   }
 }
 
