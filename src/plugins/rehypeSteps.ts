@@ -1,11 +1,8 @@
 // https://github.com/withastro/starlight/blob/main/packages/starlight/user-components/rehype-steps.ts
 
 import { AstroError } from 'astro/errors'
-
 import type { Element, Root } from 'hast'
-
 import { rehype } from 'rehype'
-
 import type { VFile } from 'vfile'
 
 const prettyPrintProcessor = rehype().data('settings', { fragment: true })

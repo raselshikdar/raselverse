@@ -1,17 +1,16 @@
 ---
+import PageLayout from '@/layouts/BaseLayout.astro'
 import { Image } from 'astro:assets'
 
-import PageLayout from '@/layouts/BaseLayout.astro'
-import Section from '@/components/home/Section.astro'
-import { Card, Label, Button } from '@/components/user'
-import ProjectCard from '@/components/home/ProjectCard.astro'
-import SkillLayout from '@/components/home/SkillLayout.astro'
-import Hitokoto from '@/components/home/Hitokoto.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
-import { siteConfig } from '@/site-config'
+import Hitokoto from '@/components/home/Hitokoto.astro'
+import ProjectCard from '@/components/home/ProjectCard.astro'
+import Section from '@/components/home/Section.astro'
+import SkillLayout from '@/components/home/SkillLayout.astro'
+import { Button, Card, Label } from '@/components/user'
 import { getAllCollections, sortMDByDate } from '@/utils'
-
 import avatar from '@/assets/avatar.png'
+import { siteConfig } from '@/site-config'
 
 const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
 const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']

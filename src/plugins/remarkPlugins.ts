@@ -1,18 +1,19 @@
-import getReadingTime from 'reading-time'
-import toString from './mdastUtilToString'
-import { visit } from 'unist-util-visit'
-import type { Plugin } from 'unified'
 import type {
-  Root,
-  Node,
-  Paragraph,
-  Link,
-  Html,
   Blockquote,
   FootnoteDefinition,
-  ListItem
+  Html,
+  Link,
+  ListItem,
+  Node,
+  Paragraph,
+  Root
 } from 'mdast'
-import { fetchGitHubApi, fetchArxivApi } from '../utils/api'
+import getReadingTime from 'reading-time'
+import type { Plugin } from 'unified'
+import { visit } from 'unist-util-visit'
+
+import { fetchArxivApi, fetchGitHubApi } from '../utils/api'
+import toString from './mdastUtilToString'
 
 export const remarkReadingTime: Plugin<[], Root> = function () {
   return function (tree, { data }) {

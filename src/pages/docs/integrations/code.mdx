@@ -14,9 +14,7 @@ For `.astro` file:
 import { Code } from 'astro:components'
 ---
 
-<Code
-  lang='shell'
-  code={`git log --oneline`} />
+<Code lang='shell' code={`git log --oneline`} />
 ```
 
 For `.mdx` and `.md` file:
@@ -53,6 +51,7 @@ Supports add and del lines.
 
 ````markdown
 <!-- You need to delete `\` during the use -->
+
 ```shell title="deploy.sh"
 #!/bin/bash
 
@@ -60,7 +59,7 @@ bun check
 bun lint
 bun format # [\!code ++]
 # No need for vercel or other ci/cd
-bun run build # [\!code --] 
+bun run build # [\!code --]
 git push
 ```
 ````
@@ -74,6 +73,6 @@ bun check
 bun lint
 bun format # [!code ++]
 # No need for vercel or other ci/cd
-bun run build # [!code --] 
+bun run build # [!code --]
 git push
 ```

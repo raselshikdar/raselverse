@@ -1,8 +1,9 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import { FormattedDate } from '@/components/user'
-import PageInfo from '@/components/pages/PageInfo.astro'
 import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+
+import PageInfo from '@/components/pages/PageInfo.astro'
+import { FormattedDate } from '@/components/user'
 
 interface Props {
   content: CollectionEntry<'post'>

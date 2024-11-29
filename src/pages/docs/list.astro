@@ -1,11 +1,13 @@
 ---
-export const prerender = true
+import PageLayout from '@/layouts/BaseLayout.astro'
 
 import { Button, CardList } from '@/components/user'
-import PageLayout from '@/layouts/BaseLayout.astro'
-import { docs } from './contents'
 import { cn } from '@/utils'
 import { siteConfig } from '@/site-config'
+
+import { docs } from './contents'
+
+export const prerender = true
 
 const meta = {
   title: 'Docs content',
