@@ -27,7 +27,7 @@ frontmatter.back = '/docs/list'
   rawContent={rawContent}
   compiledContent={compiledContent}
 >
-  <CardList {...docs} />
-  <slot />
   <CardList {...docs} collapse />
+  <slot />
+  <CardList {...docs} title='See more docs' class='mt-5' />
 </IndividualPage>
