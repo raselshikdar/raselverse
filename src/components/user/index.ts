@@ -1,6 +1,7 @@
 // Caontainer
 export { default as Card } from './Card.astro'
 export { default as Collapse } from './Collapse.astro'
+export { default as Aside } from './Aside.astro'
 
 // List
 export { default as CardList } from './CardList.astro'

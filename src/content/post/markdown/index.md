@@ -296,42 +296,6 @@ Preview:
 - [ ] Incomplete task
 - [x] Completed task
 
-### Special Blockquotes
-
-```markdown
-> [!NOTE]
-> Useful information that users should also know when browsing the content.
-
-> [!TIP]
-> Useful tips for doing things better or easier.
-
-> [!IMPORTANT]
-> Key information that users need to know.
-
-> [!WARNING]
-> Urgent information that requires users' immediate attention to avoid problems.
-
-> [!CAUTION]
-> Provides advice on the risks or negative consequences of certain actions.
-```
-
-Preview:
-
-> [!NOTE]
-> Useful information that users should also know when browsing the content.
-
-> [!TIP]
-> Useful tips for doing things better or easier.
-
-> [!IMPORTANT]
-> Key information that users need to know.
-
-> [!WARNING]
-> Urgent information that requires users' immediate attention to avoid problems.
-
-> [!CAUTION]
-> Provides advice on the risks or negative consequences of certain actions.
-
 ### Symbol Escaping
 
 If you need to use markdown symbols like \_ # \* in your description but don't want them to be escaped, you can add a backslash before these symbols, such as `\_` `\#` `\*` to avoid it.
@@ -352,6 +316,4 @@ Preview:
 
 ## Embedding Astro Components
 
-The source code is located in the `src/components` directory, generally not for writing, but for page customization.
-
-You can add new components by following the writing style of existing components.
+See [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced-components) for details.

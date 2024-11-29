@@ -296,42 +296,6 @@ markdown 分段落是需要空一行的。
 - [ ] 未完成的任务
 - [x] 已完成的任务
 
-### 特别引用块
-
-```markdown
-> [!NOTE]
-> 在浏览内容时，用户也应该知道的有用信息。
-
-> [!TIP]
-> 可以更好或更容易地完成事情的有用建议。
-
-> [!IMPORTANT]
-> 用户需要知道的关键信息。
-
-> [!WARNING]
-> 需要用户立即关注以避免问题的紧急信息。
-
-> [!CAUTION]
-> 就某些行为的风险或负面结果提供建议。
-```
-
-预览：
-
-> [!NOTE]
-> 在浏览内容时，用户也应该知道的有用信息。
-
-> [!TIP]
-> 可以更好或更容易地完成事情的有用建议。
-
-> [!IMPORTANT]
-> 用户需要知道的关键信息。
-
-> [!WARNING]
-> 需要用户立即关注以避免问题的紧急信息。
-
-> [!CAUTION]
-> 就某些行为的风险或负面结果提供建议。
-
 ### 符号转义
 
 如果你的描述中需要用到 markdown 的符号，比如 \_ # \* 等，但又不想它被转义，这时候可以在这些符号前加反斜杠，如 `\_` `\#` `\*` 进行避免。
@@ -352,6 +316,4 @@ markdown 分段落是需要空一行的。
 
 ## 内嵌 Astro 组件
 
-源代码位于 `src/components` 目录下，一般不用于写作，而是用于页面的客制化。
-
-你可以仿照现有组件的写法，自行添加新的组件。
+See [User Components](/docs/integrations/components) and [Advanced Components](/docs/integrations/advanced-components) for details.
