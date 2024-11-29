@@ -1,0 +1,38 @@
+---
+export const prerender = true
+
+import Button from '@/components/Button.astro'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import CardList from '@/components/pages/CardList.astro'
+import { docs } from './contents'
+
+const meta = {
+  title: 'Docs content',
+  description: 'Docs content documentation'
+}
+---
+
+<PageLayout meta={meta}>
+  <div class='w-full'>
+    <Button title='Back' href='/' style='back' />
+    <h1 id='content-header' class='animate mb-6 mt-6 text-3xl font-medium sm:mt-10'>
+      Docs of Astro Theme Pure
+    </h1>
+
+    <div
+      id='content'
+      class='animate prose prose-base prose-zinc mt-8 max-w-none text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground md:min-w-[45ch]'
+    >
+      <h2 class='text-xl font-medium'>Theme documentation</h2>
+      <CardList {...docs} />
+
+      <h2 class='text-xl font-medium'>Feedback</h2>
+      <p>
+        If you have any problems, you can check <a
+          href='https://github.com/cworld1/astro-theme-pure/issues'
+          target='_blank'>Github Issues</a
+        > for community support.
+      </p>
+    </div>
+  </div>
+</PageLayout>

@@ -1,0 +1,58 @@
+---
+layout: './DocsLayout.astro'
+
+title: 'Deployment'
+description: 'Comment system for pages at the bottom'
+---
+
+import Steps from '@/components/Steps.astro'
+import 'remark-github-blockquote-alert/alert.css'
+
+## Deployment Mode
+
+> [!NOTE]
+>
+> Astro had a very fantastic support for deployment. Check [Deploy your Astro Site](https://docs.astro.build/en/guides/deploy/) for more.
+
+### Vercel
+
+This theme supports Vercel by default:
+
+<Steps>
+
+1. Push your code to your online Git repository (GitHub, GitLab, BitBucket).
+2. [Import your project](https://vercel.com/new) into Vercel.
+3. Vercel will automatically detect Astro and configure the right settings.
+4. Your application is deployed! (e.g. [astro.vercel.app](https://astro.vercel.app/))
+
+</Steps>
+
+### Static
+
+If you are deploying with Node.js locally, you need to follow the comments in `astro.config.ts` and modify
+
+```ts title="astro.config.ts"
+import vercel from '@astrojs/vercel/serverless'
+// ...
+export default defineConfig({
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true
+    }
+  })
+  //   ...
+})
+```
+
+to
+
+```ts title="astro.config.ts"
+import node from '@astrojs/node'
+// ...
+export default defineConfig({
+  adapter: node({
+    mode: 'standalone'
+  })
+  //   ...
+})
+```

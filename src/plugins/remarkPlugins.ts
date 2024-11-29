@@ -1,5 +1,6 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
+import { visit } from 'unist-util-visit'
 import type { Plugin } from 'unified'
 import type {
   Root,
@@ -11,7 +12,6 @@ import type {
   FootnoteDefinition,
   ListItem
 } from 'mdast'
-import { visit } from 'unist-util-visit'
 import { fetchGitHubApi, fetchArxivApi } from '../utils/api'
 
 export const remarkReadingTime: Plugin<[], Root> = function () {

@@ -1,0 +1,33 @@
+---
+import CardList from '@/components/pages/CardList.astro'
+import IndividualPage from '@/layouts/IndividualPage.astro'
+import { docs } from './contents'
+import type { MarkdownLayoutProps, MarkdownHeading } from 'astro'
+
+type Props = MarkdownLayoutProps<{
+  title: string
+  description: string
+  heroImage?: { src: string }
+  language?: string
+  back?: string
+}> & {
+  headings: MarkdownHeading[]
+}
+
+const { frontmatter, headings, file, url, rawContent, compiledContent } = Astro.props
+frontmatter.file = file
+frontmatter.back = '/docs/list'
+---
+
+<IndividualPage
+  frontmatter={frontmatter}
+  headings={headings}
+  file={file}
+  url={url}
+  rawContent={rawContent}
+  compiledContent={compiledContent}
+>
+  <CardList {...docs} />
+  <slot />
+  <CardList {...docs} collapse />
+</IndividualPage>

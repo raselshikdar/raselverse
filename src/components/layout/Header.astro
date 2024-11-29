@@ -137,13 +137,6 @@ import { siteConfig, menuLinks } from '@/site-config'
       this.querySelector('#toggleMenu')?.addEventListener('click', () => {
         this.classList.toggle('expanded')
       })
-      // Dark Mode
-      this.querySelector('#toggleDarkMode')?.addEventListener('click', () => {
-        const toggleDarkModeEvent = new CustomEvent('theme-change', {
-          detail: { theme: localStorage.getItem('theme') === 'light' ? 'dark' : 'light' }
-        })
-        document.dispatchEvent(toggleDarkModeEvent)
-      })
     }
   }
 

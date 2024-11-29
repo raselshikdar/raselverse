@@ -1,4 +1,4 @@
-import type { SiteConfig, MenuLinks, SocialLinks } from '@/types'
+import type { SiteConfig, FooterConfig, IntegrationConfig, MenuLinks, CardListData } from '@/types'
 
 export const siteConfig: SiteConfig = {
   // === Required meta properties ===
@@ -30,24 +30,12 @@ export const siteConfig: SiteConfig = {
   // - https://cdn.jsdelivr.net/npm
   // - https://cdn.smartcis.cn/npm
   // - https://unkpg.com
+  // - https://cdn.cbd.int
 
   // === Customize options ===
-  commonPage: {
-    // Comment system service backend link
-    walineServerUrl: 'https://astro-theme-pure-waline.arthals.ink'
-  },
-
   blog: {
     pageSize: 8, // blog page size for pagination
     externalLinkArrow: true // show external link arrow
-  },
-
-  footer: {
-    // Registration information for ICP (optional)
-    registration: {
-      url: 'https://icp.gov.moe/?keyword=APTX4869',
-      text: '萌ICP备APTX4869号'
-    }
   },
 
   links: {
@@ -67,22 +55,55 @@ export const siteConfig: SiteConfig = {
   }
 }
 
-// Will be used in Footer.astro
-export const socialLinks: SocialLinks = [
-  // {
-  //   name: 'mail',
-  //   url: 'mailto:test@example.com'
-  // },
-  {
-    name: 'github',
-    url: 'https://github.com/cworld1/astro-theme-pure'
+// Footer configuration, which contains the registration and social links
+// and will be used in Footer.astro
+export const footerConfig: FooterConfig = {
+  // Registration information for ICP (optional)
+  registration: {
+    url: 'https://icp.gov.moe/?keyword=APTX4869',
+    text: '萌ICP备APTX4869号'
+  },
+  socialLinks: [
+    // {
+    //   name: 'mail',
+    //   url: 'mailto:test@example.com'
+    // },
+    {
+      name: 'github',
+      url: 'https://github.com/cworld1/astro-theme-pure'
+    }
+  ]
+}
+
+export const integrationConfig: IntegrationConfig = {
+  waline: {
+    // Comment system service link (no link to disable)
+    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    // Refer https://waline.js.org/en/guide/features/emoji.html
+    emoji: ['bmoji', 'weibo'],
+    // Refer https://waline.js.org/en/reference/client/props.html
+    additionalConfigs: {
+      // search: false,
+      pageview: true,
+      comment: true,
+      locale: {
+        reaction0: 'Like',
+        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
+      },
+      imageUploader: false
+    }
   }
-]
+}
 
 export const menuLinks: MenuLinks = [
   {
     link: '/blog',
     label: 'Blog'
+  },
+  // Docs menu
+  {
+    link: '/docs/list',
+    label: 'Docs'
   },
   {
     link: '/projects',
@@ -97,3 +118,25 @@ export const menuLinks: MenuLinks = [
     label: 'About'
   }
 ]
+
+export const terms: CardListData = {
+  title: 'Terms content',
+  list: [
+    {
+      title: 'Privacy Policy',
+      link: '/terms/privacy-policy'
+    },
+    {
+      title: 'Terms and Conditions',
+      link: '/terms/terms-and-conditions'
+    },
+    {
+      title: 'Copyright',
+      link: '/terms/copyright'
+    },
+    {
+      title: 'Disclaimer',
+      link: '/terms/disclaimer'
+    }
+  ]
+}

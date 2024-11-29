@@ -1,0 +1,31 @@
+---
+layout: './DocsLayout.astro'
+
+title: 'Update Theme'
+description: 'Update astro theme pure to the latest version'
+---
+
+## Breaking Changes
+
+### v3.0.9
+
+A stable version.
+
+### v3.1.0 (pre-release)
+
+- Change common content markdown formatter `coverImage` to `heroImage`. You need to modify all your markdown files to replace `coverImage` with `heroImage`.
+
+### v3.1.1
+
+- Move the internal parts in the `src/utils` to `src/plugins`.
+- Modify the configuration file `astro.config.ts` to `astro.config.mjs`.
+- Update ESLint to latest version and migrate configuration file `.eslintrc.js` to `eslint.config.mjs`.
+- Modify the `prettier.config.js` to `prettier.config.mjs`.
+
+### v3.1.2 (pre-release)
+
+- Move some configuration items like `telegram`, `walineServelURL` to new structure in `src/site.config.ts`.
+
+### v3.1.3
+
+Pending update...

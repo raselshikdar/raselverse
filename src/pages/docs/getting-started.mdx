@@ -1,0 +1,71 @@
+---
+layout: './DocsLayout.astro'
+
+title: 'Getting Started'
+description: 'Get started with the astro theme pure'
+---
+
+import Steps from '@/components/Steps.astro'
+
+## Installation
+
+<Steps>
+
+1. Install the theme
+
+   Execute the following command in the Hexo root directory to install the theme. There are two ways to do it:
+
+   ```shell
+   bun create astro@latest --template cworld1/astro-theme-pure
+   cd ./<your-project>
+   ```
+
+2. Remove docs files
+
+   - Remove the `src/pages/docs` directory
+   - Remove the menu declaration in `src/site.config.ts` like `export const menuLinks: MenuLinks = [ ... { link: '/docs/list', label: 'Docs' }]`
+
+3. VOILA!
+
+   Now you can start Astro and see the results.
+
+   ```shell
+   bun dev
+   ```
+
+   Next, please read the configuration notes first and continue configuring the theme.
+
+4. Configure the site
+
+   You can configure your project inside the `src/site.config.ts` configuration file:
+
+5. Typescript Syntax
+
+   The configuration file `site.config.ts uses Typescript syntax. If you are not familiar with TS syntax, please read about it [here](https://learnxinyminutes.com/docs/typescript/) first.
+
+6. More Infomation
+
+   You can read more from [Install and set up Astro](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template) to make a quick setup. Also, you can checkup more docs about this theme.
+
+</Steps>
+
+## Theme File Structure
+
+The theme file structure is as follows:
+
+- `public`: Static resources that will be copied to the root directory
+- `src`:
+  - `assets`: Static resources
+  - `components`: Components used in the theme, also include user-like components, like `Card`, `Collapse`, `Spoiler`, etc.
+  - `layouts`: Basic site layouts
+  - `pages`: Pages like `404`, `about`, `blog`, `docs`, `index`, etc.
+  - `plugins`: Extended plugins used in the theme
+  - `types`: Typescript type definitions
+  - `utils`: Utilities
+  - `site.config.ts`: Theme configuration file
+- `astro.config.mjs`: Astro configuration file
+- `eslint.config.mjs`: ESLint configuration file
+- `prettier.config.mjs`: Prettier configuration file
+- `tailwind.config.mjs`: Tailwind CSS configuration file
+- `tsconfig.json`: Typescript configuration file
+- `package.json`: Package information

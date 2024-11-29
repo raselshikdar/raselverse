@@ -1,0 +1,212 @@
+---
+layout: '../DocsLayout.astro'
+
+title: 'User Components'
+description: 'Easily extend your content page more interactive'
+---
+
+import 'remark-github-blockquote-alert/alert.css'
+
+Components let you easily reuse a piece of UI or styling consistently. You can use them not just in `.astro` files, but also in `.mdx` files.
+
+> [!NOTE]
+>
+> [MDX](https://mdxjs.com/) is a format that lets you write JSX embedded inside Markdown. And it has no difference with markdown files in other ways.
+
+## Container
+
+### Card
+
+```jsx
+import Card from '@/components/Card.astro'
+
+<Card
+  as='a'
+  href='#card'
+  heading='Lorem ipsum'
+  subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
+  date='August 2021'
+>
+  You can even contain a list here
+</Card>
+```
+
+Like this:
+
+import Card from '@/components/Card.astro'
+
+<Card
+  as='a'
+  href='#card'
+  heading='Lorem ipsum'
+  subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
+  date='August 2021'
+>
+  You can even contain a list here
+</Card>
+
+### Collapse
+
+```jsx
+import Collapse from '@/components/Collapse.astro'
+
+<Collapse title='Lorem ipsum'> Lorem ipsum dolor sit amet, vidit suscipit at mei. </Collapse>
+```
+
+Like this:
+
+import Collapse from '@/components/Collapse.astro'
+
+<Collapse title='Lorem ipsum'>Lorem ipsum dolor sit amet, vidit suscipit at mei.</Collapse>
+
+## List
+
+### CardList
+
+```jsx
+import CardList from '@/components/pages/CardList.astro'
+
+<CardList title='A list' list={
+  [
+    { title: 'Lorem ipsum', link: '#' },
+    { title: 'Dolor sit amet', children: [{
+      title: 'Vidit suscipit', link: '#'
+    }] }
+  ]
+} />
+```
+
+Like this:
+
+import CardList from '@/components/pages/CardList.astro'
+
+<CardList title='A list' list={
+  [
+    { title: 'Lorem ipsum', link: '#' },
+    { title: 'Dolor sit amet', children: [{
+      title: 'Vidit suscipit', link: '#'
+    }] }
+  ]
+} />
+
+### Timeline
+
+```jsx
+import Timeline from '@/components/Timeline.astro'
+
+<Timeline events={
+  [
+    { date: 'August 2021', content: 'Hello' },
+    { date: 'August 2022', content: '<i>World!</i>' },
+  ]
+} />
+```
+
+Like this:
+
+import Timeline from '@/components/Timeline.astro'
+
+<Timeline events={
+  [
+    { date: 'August 2021', content: 'Hello' },
+    { date: 'August 2022', content: '<i>World!</i>' },
+  ]
+} />
+
+### Steps
+
+```jsx
+import Steps from '@/components/Steps.astro'
+
+How to Yi Jian San Lian:
+
+<Steps>
+1. Dian Zan
+2. Tou Bi
+3. Shou Cang
+</Steps>
+```
+
+Like this:
+
+import Steps from '@/components/Steps.astro'
+
+How to Yi Jian San Lian:
+
+<Steps>
+1. Dian Zan
+2. Tou Bi
+3. Shou Cang
+</Steps>
+
+## Simple Text Rerender
+
+### Button
+
+```jsx
+import Button from '@/components/Button.astro'
+
+<div class='flex gap-x-2'>
+  <Button as='div' title='Simple' />
+  <Button as='a' href='#button' title='Link style' style='ahead' class='not-prose' />
+  <Button as='div' title='Back' style='back' />
+  <Button as='div' title='Pill style' style='pill' />
+  <Button as='div' style='pill'><i>Italic</i></Button>
+</div>
+```
+
+Like this:
+
+import Button from '@/components/Button.astro'
+
+<div class='flex gap-x-2'>
+  <Button as='div' title='Simple' />
+  <Button as='a' href='#button' title='Link style' style='ahead' class='not-prose' />
+  <Button as='div' title='Back' style='back' />
+  <Button as='div' title='Pill style' style='pill' />
+  <Button as='div' style='pill'><i>Italic</i></Button>
+</div>
+
+### Spoiler
+
+```jsx
+import Spoiler from '@/components/Spoiler.astro'
+
+<Spoiler>No one can find me.</Spoiler> But I am exposed here.
+```
+
+Like this:
+
+import Spoiler from '@/components/Spoiler.astro'
+
+<Spoiler>No one can find me.</Spoiler> But I am exposed here.
+
+### Formatted Date
+
+```jsx
+import FormattedDate from '@/components/FormattedDate.astro'
+
+<FormattedDate date={new Date('2021-08-01')} dateTimeOptions={{ month: 'short' }} />
+```
+
+Like this:
+
+import FormattedDate from '@/components/FormattedDate.astro'
+
+<FormattedDate date={new Date('2021-08-01')} dateTimeOptions={{ month: 'short' }} />
+
+### Label
+
+```jsx
+import Label from '@/components/home/Label.astro'
+
+<Label title='Hello' />
+```
+
+Like this:
+
+import Label from '@/components/home/Label.astro'
+
+<Label title='Hello' />
+
+There's also some [Advanced Components](/docs/integrations/advanced-components), which may suit for you. Hope you enjoy using these components!
