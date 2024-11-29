@@ -26,29 +26,15 @@ You can globally search for the following keywords to find the text that needs t
 
 Next, we will introduce each aspect in detail.
 
-### Main Configuration File `src/site.config.ts`
+### Configuration Files
 
-Please modify the corresponding configuration according to the existing `src/site.config.ts` template.
-
-Some special configuration items are explained as follows:
+See [Configuration Files](/docs/integrations/configuration) for details.
 
 #### Waline Comment System
 
-> [!NOTE]
->
-> Corresponds to the `siteConfig.walineServerUrl` configuration item in `src/site.config.ts`.
-
-The theme's comment, read statistics, likes, and other functionalities are all provided by [Waline](https://waline.js.org/).
-
-You can refer to its documentation for configuration, and it is recommended to use the [Vercel](https://vercel.com/) + [Supabase](https://supabase.com/) combination.
-
-This theme only requires providing the final backend domain name in the `siteConfig.walineServerUrl` of `src/site.config.ts`.
+See [Waline Comment System](/docs/integrations/comment) for details.
 
 #### Footer
-
-> [!NOTE]
->
-> Corresponds to the `socialLinks` configuration item in `src/site.config.ts`.
 
 Currently supported social media include:
 
@@ -92,36 +78,4 @@ It is recommended to find new icons on the following websites to maintain consis
 
 ## Deployment Mode
 
-> [!NOTE]
->
-> Corresponds to the `export default defineConfig` configuration item in `astro.config.ts`.
-
-If you are deploying with Vercel, no modification is needed.
-
-If you are deploying with Node.js locally, you need to follow the comments in `astro.config.ts` and modify
-
-```ts
-import vercel from '@astrojs/vercel/serverless'
-...
-export default defineConfig({
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    }
-  }),
-  ...
-})
-```
-
-to
-
-```ts
-import node from '@astrojs/node'
-...
-export default defineConfig({
-  adapter: node({
-    mode: 'standalone'
-  }),
-  ...
-})
-```
+See [Deployment](/docs/deployment) for details.
