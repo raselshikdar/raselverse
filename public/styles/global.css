@@ -41,13 +41,6 @@ span.katex-display {
   overflow-y: scroll;
   padding: 0.5rem;
 }
-/* Markdown Alert */
-.markdown-alert {
-  margin-top: 1.25rem !important;
-}
-.markdown-alert-title {
-  margin-top: 0.5rem !important;
-}
 
 /* Shiki */
 .astro-code {
