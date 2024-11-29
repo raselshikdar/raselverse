@@ -81,7 +81,7 @@ function transformerNotationMap(
     new RegExp(
       `\\s*(?://|/\\*|<!--|#|--|%{1,2}|;{1,2}|"|')\\s+\\[!code (${Object.keys(classMap).map(escapeRegExp).join('|')})(:\\d+)?\\]\\s*(?:\\*/|-->)?\\s*$`
     ),
-    function ([_, match, range = ':1'], _line, _comment, lines, index) {
+    function ([_unused, match, range = ':1'], _line, _comment, lines, index) {
       const lineNum = Number.parseInt(range.slice(1), 10)
       lines.slice(index, index + lineNum).forEach((line) => {
         this.addClassToHast(line, classMap[match])

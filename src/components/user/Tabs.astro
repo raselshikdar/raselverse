@@ -50,7 +50,7 @@ if (isSynced) {
 			if (!syncKey) return;
 			const label = localStorage.getItem(`starlight-synced-tabs__${syncKey}`);
 			if (!label) return;
-			const tabs = [...starlightTabs?.querySelectorAll('[role="tab"]')];
+			const tabs = starlightTabs ? [...starlightTabs.querySelectorAll('[role="tab"]')] : [];
 			const tabIndexToRestore = tabs.findIndex(
 				(tab) => tab instanceof HTMLAnchorElement && tab.textContent?.trim() === label
 			);
@@ -173,7 +173,7 @@ if (isSynced) {
 
 				// Handle keyboard input
 				tab.addEventListener('keydown', (e) => {
-					const index = this.tabs.indexOf(e.currentTarget as any);
+					const index = this.tabs.indexOf(e.currentTarget as HTMLAnchorElement);
 					// Work out which key the user is pressing and
 					// Calculate the new tab's index where appropriate
 					const nextIndex =
