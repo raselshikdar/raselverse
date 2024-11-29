@@ -5,47 +5,89 @@ title: 'Getting Started'
 description: 'Get started with the astro theme pure'
 ---
 
-import { Steps } from '@/components/user'
+import { Steps, Aside, Tabs, TabItem } from '@/components/user'
 
 ## Installation
+
+<Aside type='tip'>
+Astro has a great article teaching you setting up project: [Install and set up Astro #Use a theme or starter template](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template) 
+</Aside>
 
 <Steps>
 
 1. Install the theme
 
-   Execute the following command in the Hexo root directory to install the theme. There are two ways to do it:
-
+   Execute the following command in the Hexo root directory to install the theme:
+   
+   <Tabs>
+   <TabItem label='bun'>
    ```shell
    bun create astro@latest --template cworld1/astro-theme-pure
-   cd ./<your-project>
+   ```
+   <Aside type='tip'>
+   For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating `bunfig.toml` under the project root directory:
+
+   ```toml title="bunfig.toml"
+   [install]
+   registry = "<npm mirror site>"
    ```
 
-2. Remove docs files
+   For details about other PM mirror configs, you may need to see their official documents.
+   </Aside>
+   </TabItem>
+   <TabItem label='pnpm'>
+   ```shell
+   pnpm create astro@latest --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   <TabItem label='yarn'>
+   ```shell
+   yarn create astro --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   <TabItem label='npm'>
+   ```shell
+   npm create astro@latest -- --template cworld1/astro-theme-pure
+   ```
+   </TabItem>
+   </Tabs>
 
-   - Remove the `src/pages/docs` directory
-   - Remove the menu declaration in `src/site.config.ts` like `export const menuLinks: MenuLinks = [ ... { link: '/docs/list', label: 'Docs' }]`
+   By default, this command will use the template repository’s main branch. To use a different branch name, pass it as part of the `--template` argument: `cworld1/astro-theme-pure#<branch>`.
+
+2. Answer the questions and follow the instructions of the CLI wizard.
 
 3. VOILA!
 
-   Now you can start Astro and see the results.
+   You can now [start the Astro dev server](https://docs.astro.build/en/install-and-setup/#start-the-astro-dev-server) and see a live preview of your project while you make it your own!
 
+   ```shell
+   cd ./<your-project>
+   ```
+
+   <Tabs>
+   <TabItem label='bun'>
    ```shell
    bun dev
    ```
+   </TabItem>
+   <TabItem label='pnpm'>
+   ```shell
+   pnpm dev
+   ```
+   </TabItem>
+   <TabItem label='yarn'>
+   ```shell
+   yarn run dev
+   ```
+   </TabItem>
+   <TabItem label='npm'>
+   ```shell
+   npm run dev
+   ```
+   </TabItem>
+   </Tabs>
 
    Next, please read the configuration notes first and continue configuring the theme.
-
-4. Configure the site
-
-   You can configure your project inside the `src/site.config.ts` configuration file:
-
-5. Typescript Syntax
-
-   The configuration file `site.config.ts uses Typescript syntax. If you are not familiar with TS syntax, please read about it [here](https://learnxinyminutes.com/docs/typescript/) first.
-
-6. More Infomation
-
-   You can read more from [Install and set up Astro](https://docs.astro.build/en/install-and-setup/#use-a-theme-or-starter-template) to make a quick setup. Also, you can checkup more docs about this theme.
 
 </Steps>
 
@@ -69,3 +111,61 @@ The theme file structure is as follows:
 - `tailwind.config.mjs`: Tailwind CSS configuration file
 - `tsconfig.json`: Typescript configuration file
 - `package.json`: Package information
+
+## Simple Setup
+
+
+<Steps>
+
+1. Remove docs files
+
+   - Remove the `src/pages/docs` directory
+   - Remove the menu declaration in `src/site.config.ts`:
+   
+   ```ts title="src/site.config.ts"
+   // ...
+   export const menuLinks: MenuLinks = [
+      // ...
+      // Docs menu
+      { // [!code --]
+         link: '/docs/list', // [!code --]
+         label: 'Docs' // [!code --]
+      }, // [!code --]
+   ]
+   ```
+
+2. Change the site favicon.
+
+   <Aside type='tip'>
+   [Favicon.io](https://favicon.io/) is a great tool that can help you generate favicons quickly.
+   </Aside>
+
+   Replace the `public/favicon/*` files with your own favicon.
+
+3. Replace your avatar image.
+
+   Replace the `src/assets/avatar.png` file with your own avatar image.
+
+4. Configure the site
+
+   You can configure your project inside the `src/site.config.ts` configuration file:
+
+   ```ts title="src/site.config.ts"
+   export const siteConfig: SiteConfig = {
+      author: 'CWorld / Arthals',
+      title: 'Astro Theme Pure',
+      site: 'https://astro-theme-pure.vercel.app',
+      description: 'Stay hungry, stay foolish',
+      // ...
+   }
+
+   export const footerConfig: FooterConfig = { /* ... */ }
+   export const integrationConfig: IntegrationConfig = { /* ... */ }
+   // ...
+   ```
+
+5. Typescript Syntax
+
+   The configuration file `site.config.ts` uses Typescript syntax. If you are not familiar with TS syntax, please read about it [here](https://learnxinyminutes.com/docs/typescript/) first.
+
+</Steps>
