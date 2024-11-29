@@ -117,6 +117,9 @@ import { Tabs, TabItem } from '@/components/user';
 import { CardList } from '@/components/user'
 
 <CardList title='A list' list={
+  [{title: 'I am hidden!'}]
+} collapse />
+<CardList title='A list' list={
   [
     { title: 'Lorem ipsum', link: '#' },
     { title: 'Dolor sit amet', children: [{
@@ -130,6 +133,9 @@ Like this:
 
 import { CardList } from '@/components/user'
 
+<CardList title='A list' list={
+  [{title: 'I am hidden!'}]
+} collapse />
 <CardList title='A list' list={
   [
     { title: 'Lorem ipsum', link: '#' },

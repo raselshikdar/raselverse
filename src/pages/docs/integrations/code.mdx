@@ -1,0 +1,79 @@
+---
+layout: '@/pages/docs/DocsLayout.astro'
+
+title: 'Shiki Code'
+description: 'Some mmthods using shiki code'
+---
+
+## Basic Usage
+
+For `.astro` file:
+
+```astro
+---
+import { Code } from 'astro:components'
+---
+
+<Code
+  lang='shell'
+  code={`git log --oneline`} />
+```
+
+For `.mdx` and `.md` file:
+
+````markdown
+```shell
+git log --oneline
+```
+````
+
+## Add Title
+
+````markdown
+```shell title="start.sh"
+#!/bin/bash
+
+bun check &
+bun dev
+```
+````
+
+Like this:
+
+```shell title="start.sh"
+#!/bin/bash
+
+bun check &
+bun dev
+```
+
+## Show Diff
+
+Supports add and del lines.
+
+````markdown
+<!-- You need to delete `\` during the use -->
+```shell title="deploy.sh"
+#!/bin/bash
+
+bun check
+bun lint
+bun format # [\!code ++]
+# No need for vercel or other ci/cd
+bun run build # [\!code --] 
+git push
+```
+````
+
+Like this:
+
+```shell title="deploy.sh"
+#!/bin/bash
+
+bun check
+bun lint
+bun format # [!code ++]
+# No need for vercel or other ci/cd
+bun run build # [!code --] 
+git push
+```
