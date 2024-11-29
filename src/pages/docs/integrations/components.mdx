@@ -18,7 +18,7 @@ Components let you easily reuse a piece of UI or styling consistently. You can u
 ### Card
 
 ```jsx
-import Card from '@/components/Card.astro'
+import { Card } from '@/components/user'
 
 <Card
   as='a'
@@ -33,7 +33,7 @@ import Card from '@/components/Card.astro'
 
 Like this:
 
-import Card from '@/components/Card.astro'
+import { Card } from '@/components/user'
 
 <Card
   as='a'
@@ -48,14 +48,14 @@ import Card from '@/components/Card.astro'
 ### Collapse
 
 ```jsx
-import Collapse from '@/components/Collapse.astro'
+import { Collapse } from '@/components/user'
 
 <Collapse title='Lorem ipsum'> Lorem ipsum dolor sit amet, vidit suscipit at mei. </Collapse>
 ```
 
 Like this:
 
-import Collapse from '@/components/Collapse.astro'
+import { Collapse } from '@/components/user'
 
 <Collapse title='Lorem ipsum'>Lorem ipsum dolor sit amet, vidit suscipit at mei.</Collapse>
 
@@ -64,7 +64,7 @@ import Collapse from '@/components/Collapse.astro'
 ### CardList
 
 ```jsx
-import CardList from '@/components/pages/CardList.astro'
+import { CardList } from '@/components/user'
 
 <CardList title='A list' list={
   [
@@ -78,7 +78,7 @@ import CardList from '@/components/pages/CardList.astro'
 
 Like this:
 
-import CardList from '@/components/pages/CardList.astro'
+import { CardList } from '@/components/user'
 
 <CardList title='A list' list={
   [
@@ -92,7 +92,7 @@ import CardList from '@/components/pages/CardList.astro'
 ### Timeline
 
 ```jsx
-import Timeline from '@/components/Timeline.astro'
+import { Timeline } from '@/components/user'
 
 <Timeline events={
   [
@@ -104,7 +104,7 @@ import Timeline from '@/components/Timeline.astro'
 
 Like this:
 
-import Timeline from '@/components/Timeline.astro'
+import { Timeline } from '@/components/user'
 
 <Timeline events={
   [
@@ -116,7 +116,7 @@ import Timeline from '@/components/Timeline.astro'
 ### Steps
 
 ```jsx
-import Steps from '@/components/Steps.astro'
+import { Steps } from '@/components/user'
 
 How to Yi Jian San Lian:
 
@@ -129,7 +129,7 @@ How to Yi Jian San Lian:
 
 Like this:
 
-import Steps from '@/components/Steps.astro'
+import { Steps } from '@/components/user'
 
 How to Yi Jian San Lian:
 
@@ -144,7 +144,7 @@ How to Yi Jian San Lian:
 ### Button
 
 ```jsx
-import Button from '@/components/Button.astro'
+import { Button } from '@/components/user'
 
 <div class='flex gap-x-2'>
   <Button as='div' title='Simple' />
@@ -157,7 +157,7 @@ import Button from '@/components/Button.astro'
 
 Like this:
 
-import Button from '@/components/Button.astro'
+import { Button } from '@/components/user'
 
 <div class='flex gap-x-2'>
   <Button as='div' title='Simple' />
@@ -170,42 +170,42 @@ import Button from '@/components/Button.astro'
 ### Spoiler
 
 ```jsx
-import Spoiler from '@/components/Spoiler.astro'
+import { Spoiler } from '@/components/user'
 
 <Spoiler>No one can find me.</Spoiler> But I am exposed here.
 ```
 
 Like this:
 
-import Spoiler from '@/components/Spoiler.astro'
+import { Spoiler } from '@/components/user'
 
 <Spoiler>No one can find me.</Spoiler> But I am exposed here.
 
 ### Formatted Date
 
 ```jsx
-import FormattedDate from '@/components/FormattedDate.astro'
+import { FormattedDate } from '@/components/user'
 
 <FormattedDate date={new Date('2021-08-01')} dateTimeOptions={{ month: 'short' }} />
 ```
 
 Like this:
 
-import FormattedDate from '@/components/FormattedDate.astro'
+import { FormattedDate } from '@/components/user'
 
 <FormattedDate date={new Date('2021-08-01')} dateTimeOptions={{ month: 'short' }} />
 
 ### Label
 
 ```jsx
-import Label from '@/components/home/Label.astro'
+import { Label } from '@/components/user'
 
 <Label title='Hello' />
 ```
 
 Like this:
 
-import Label from '@/components/home/Label.astro'
+import { Label } from '@/components/user'
 
 <Label title='Hello' />
 

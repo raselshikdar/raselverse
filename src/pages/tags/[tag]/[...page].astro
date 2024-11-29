@@ -7,7 +7,7 @@ import type { CollectionEntry } from 'astro:content'
 import Pagination from '@/components/blog/Paginator.astro'
 import PostPreview from '@/components/blog/PostPreview.astro'
 import PageLayout from '@/layouts/BaseLayout.astro'
-import Button from '@/components/Button.astro'
+import { Button } from '@/components/user'
 import { getAllCollections, getUniqueTags, sortMDByDate } from '@/utils'
 import { siteConfig } from '@/site-config'
 
