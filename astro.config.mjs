@@ -25,7 +25,6 @@ import {
 } from './src/plugins/remarkPlugins.ts'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
-import { remarkAlert } from 'remark-github-blockquote-alert'
 import remarkMath from 'remark-math'
 import { siteConfig } from './src/site.config.ts'
 import {
@@ -83,7 +82,6 @@ export default defineConfig({
       remarkReadingTime,
       remarkAddZoomable,
       remarkMath,
-      remarkAlert,
       remarkGithubCards,
       remarkArxivCards
     ],
@@ -105,7 +103,13 @@ export default defineConfig({
         light: 'github-light',
         dark: 'github-dark'
       },
-      transformers: [updateStyle(), addTitle(), addLanguage(), addCopyButton(2000)]
+      transformers: [
+        transformerNotationDiff(),
+        updateStyle(),
+        addTitle(),
+        addLanguage(),
+        addCopyButton(2000)
+      ]
     }
   }
 })
