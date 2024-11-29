@@ -12,9 +12,11 @@
 
 ## 简介 / 部署
 
-[预览](https://astro-theme-pure.vercel.app/) | [展示台](https://github.com/cworld1/astro-theme-pure/issues/10)
+查看 [预览 →](https://astro-theme-pure.vercel.app/)
 
-欲了解更多信息，请访问 [CWorld 网站](https://cworld0.com/blog/theme-resume) 和 [部署说明](https://astro-theme-pure.vercel.app/blog/customize-zh)。
+## 使用
+
+[文档](https://astro-theme-pure.vercel.app/docs/list) | [展示台](https://github.com/cworld1/astro-theme-pure/issues/10)
 
 ## 本地开发
 
@@ -35,16 +37,6 @@ git clone https://github.com/cworld1/astro-theme-pure.git
 cd astro-theme-pure
 bun install
 ```
-
-> [!NOTE]
-> 对于 Bun，如果安装较慢，建议使用镜像配置，在项目根目录下新建 `bunfig.toml`：
->
-> ```toml
-> [install]
-> registry = "https://registry.npmmirror.com/"
-> ```
->
-> 其他 PM 配置镜像请参考各自官方文档。
 
 启动开发服务器：
 
@@ -78,3 +70,5 @@ bun preview
 ## 许可证
 
 本项目基于 Apache 2.0 许可证。
+
+[![Star History Chart](https://api.star-history.com/svg?repos=cworld1/astro-theme-pure&type=Date)](https://star-history.com/#cworld1/astro-theme-pure&Date)

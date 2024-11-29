@@ -11,11 +11,13 @@ A simple, clean but powerful blog theme build by astro.
 
 ![image](https://github.com/user-attachments/assets/7eb17ddf-fd5f-42f3-a337-675a21ba7a27)
 
-## Introduction / Deployment
+## Introduction
 
-[Demo](https://astro-theme-pure.vercel.app/) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
+Checkout [Demo Site →](https://astro-theme-pure.vercel.app/)
 
-For more information, please visit the [CWorld Site](https://cworld0.com/blog/theme-resume) and [Deployment Instructions](https://astro-theme-pure.vercel.app/blog/customize).
+## Usage
+
+[Docs](https://astro-theme-pure.vercel.app/docs/list) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
 
 ## Local development
 
@@ -36,16 +38,6 @@ Install dependencies:
 cd astro-theme-pure
 bun install
 ```
-
-> [!NOTE]
-> For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating `bunfig.toml` under the project root directory:
->
-> ```toml
-> [install]
-> registry = "<npm mirror site>"
-> ```
->
-> For details about other PM mirror configs, you may need to see their official documents.
 
 Start the development server:
 
