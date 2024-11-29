@@ -32,7 +32,8 @@ import {
   addCopyButton,
   addTitle,
   addLanguage,
-  updateStyle
+  updateStyle,
+  transformerNotationDiff
 } from './src/plugins/shikiTransformers.ts'
 
 // https://astro.build/config

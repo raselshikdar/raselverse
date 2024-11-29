@@ -30,30 +30,25 @@ This theme supports Vercel by default:
 
 ### Static
 
-If you are deploying with Node.js locally, you need to follow the comments in `astro.config.ts` and modify
+If you are deploying with Node.js locally, you need to install `@astrojs/node` first:
+
+```shell
+bun add '@astrojs/node'
+```
+
+Then follow the comments in `astro.config.ts` and modify like:
 
 ```ts title="astro.config.ts"
-import vercel from '@astrojs/vercel/serverless'
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+import node from '@astrojs/node' // [!code ++]
 // ...
 export default defineConfig({
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    }
-  })
+  adapter: vercelServerless() // [!code --]
+  adapter: node({ mode: 'standalone' }) // [!code ++]
   //   ...
 })
 ```
 
-to
+### GitHub Pages
 
-```ts title="astro.config.ts"
-import node from '@astrojs/node'
-// ...
-export default defineConfig({
-  adapter: node({
-    mode: 'standalone'
-  })
-  //   ...
-})
-```
+See [Astro: Configure Astro for GitHub Pages](https://docs.astro.build/en/guides/deploy/github/).
