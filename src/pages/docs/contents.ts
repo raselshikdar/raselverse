@@ -4,10 +4,14 @@ import type { CardListData } from '@/types'
 export const docs: CardListData = {
   title: 'Docs content',
   list: [
-    { title: 'Getting Started', link: '/docs/getting-started' },
-    { title: 'Configuration', link: '/docs/configuration' },
-    { title: 'Deployment', link: '/docs/deployment' },
-    { title: 'Update Theme', link: '/docs/update' },
+    {
+      title: 'Start',
+      children: [
+        { title: 'Getting Started', link: '/docs/getting-started' },
+        { title: 'Configuration', link: '/docs/configuration' },
+        { title: 'Deployment', link: '/docs/deployment' }
+      ]
+    },
     {
       title: 'Integrations',
       children: [
@@ -15,6 +19,10 @@ export const docs: CardListData = {
         { title: 'User Components', link: '/docs/integrations/components' },
         { title: 'Advanced Components', link: '/docs/integrations/advanced-components' }
       ]
+    },
+    {
+      title: 'Advanced',
+      children: [{ title: 'Update Theme', link: '/docs/update' }]
     }
   ]
 }

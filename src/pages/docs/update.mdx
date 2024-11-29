@@ -34,4 +34,15 @@ A stable version.
 
 ### v3.1.3
 
+- Move user components to `src/components/user`. Affected components are included in [User Components](/docs/integrations/components) Import method is also changed:
+
+  ```ts
+  import Button from '@/components/Button' // [!code --]
+  import { Button } from '@/components/user' // [!code ++]
+  ```
+
+- Replace `remark-github-blockquote-alert` plugin to component `Aside`. Check [User Components #Aside](/docs/integrations/components#aside) to know how to migrate.
+
+- ... 
+
 Pending update...
