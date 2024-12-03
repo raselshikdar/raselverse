@@ -57,27 +57,21 @@ span.katex-display {
 
     & code {
       display: block;
-      width: 100%;
+      width: fit-content;
       min-width: 100%;
       min-height: 1.5rem;
       counter-reset: step;
       counter-increment: step 0;
-      position: relative;
-      overflow: scroll;
-      color: var(--tw-prose-body);
-
-      & .line::before {
-        content: counter(step);
-        counter-increment: step;
-        color: hsl(var(--muted-foreground) / 0.6);
-        margin-inline-end: 0.75rem;
-        justify-content: flex-end;
-        display: inline-flex;
-        position: sticky;
-        left: 0;
-        background-color: hsl(var(--primary-foreground));
-        width: 2rem;
-        padding-right: 0.5rem;
+      &::before {
+        position: absolute;
+        inset-inline-start: 0;
+        width: 2.75rem;
+        top: 0.8571429em;
+        bottom: 0;
+        content: '';
+        display: block;
+        background-color: hsl(var(--muted) / var(--tw-bg-opacity, 1));
+        z-index: 1;
       }
 
       & .line {
@@ -181,9 +175,6 @@ span.katex-display {
 .dark {
   .astro-code pre span {
     color: var(--shiki-dark) !important;
-  }
-  .astro-code pre .line::before {
-    background-color: var(--shiki-dark-bg);
   }
 }
 
