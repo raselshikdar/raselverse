@@ -1,4 +1,5 @@
 // @ts-check
+
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
@@ -14,8 +15,7 @@ import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import { visualizer } from 'rollup-plugin-visualizer'
 
-import { pagefindConfig } from '@/plugins/pagefind.ts'
-
+import { pagefindConfig } from './src/plugins/pagefind.ts'
 // Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
 // Markdown
