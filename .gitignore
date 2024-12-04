@@ -77,3 +77,4 @@ old_blog
 ignore.*
 bunfig.toml
 /src/content/post/test.*
+/test/

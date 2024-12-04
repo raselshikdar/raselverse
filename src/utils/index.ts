@@ -1,11 +1,8 @@
-export const prod = import.meta.env.PROD
-
 // Tailwind
 export { cn } from './tailwind'
 
 // Collections
 export {
-  getAllCollections,
   groupCollectionsByYear,
   sortMDByDate,
   getUniqueTags,

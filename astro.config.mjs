@@ -1,11 +1,10 @@
 // @ts-check
-
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 // Adapter
-import vercelServerless from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 // Integrations
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
@@ -13,6 +12,7 @@ import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
@@ -39,11 +39,11 @@ export default defineConfig({
   site: siteConfig.site,
   // base: '/docs',
   trailingSlash: 'never',
-  output: 'server',
 
   // Adapter
   // 1. Vercel (serverless)
-  adapter: vercelServerless(),
+  adapter: vercel(),
+  output: 'server',
   // 2. Vercel (static)
   // adapter: vercelStatic(),
   // 3. Local (standalone)
@@ -120,5 +120,13 @@ export default defineConfig({
         addCopyButton(2000)
       ]
     }
+  },
+  vite: {
+    plugins: [
+      visualizer({
+        emitFile: true,
+        filename: 'stats.html'
+      })
+    ]
   }
 })

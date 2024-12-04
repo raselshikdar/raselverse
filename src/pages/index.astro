@@ -8,7 +8,8 @@ import ProjectCard from '@/components/home/ProjectCard.astro'
 import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import { Button, Card, Label } from '@/components/user'
-import { getAllCollections, sortMDByDate } from '@/utils'
+import { sortMDByDate } from '@/utils'
+import { getBlogCollection } from '@/utils/server'
 import avatar from '@/assets/avatar.png'
 import { siteConfig } from '@/site-config'
 
@@ -17,7 +18,7 @@ const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
 const backend = ['Vercel', 'Waline']
 
 const MAX_POSTS = 10
-const allPosts = await getAllCollections()
+const allPosts = await getBlogCollection()
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
 ---
 

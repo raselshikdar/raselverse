@@ -1,37 +1,38 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import type { CollectionKey, InferEntrySchema } from 'astro:content'
 
 import { QRCode } from '@/components/advanced'
 import { cn, getFormattedDate } from '@/utils'
 import { siteConfig } from '@/site-config'
 
 interface Props {
-  content: CollectionEntry<'post'>
+  id: string
+  data: InferEntrySchema<CollectionKey>
   class?: string
 }
 
 const {
-  content: { slug, data },
+  id,
+  data: { heroImage, title, publishDate },
   class: className
 } = Astro.props
 
-const link = `${import.meta.env.SITE}/blog/${slug}`
+const link = `${import.meta.env.SITE}/blog/${id}`
 
-const image =
-  typeof data.heroImage?.src === 'string' ? data.heroImage?.src : (data.heroImage?.src?.src ?? '')
+const image = typeof heroImage?.src === 'string' ? heroImage?.src : (heroImage?.src?.src ?? '')
 
 const shares = {
   weibo: {
     icon: 'mingcute-weibo-line',
-    link: `http://service.weibo.com/share/share.php?url=${encodeURIComponent(link)}&title=${data.title}&pic=${image}`
+    link: `http://service.weibo.com/share/share.php?url=${encodeURIComponent(link)}&title=${title}&pic=${image}`
   },
   x: {
     icon: 'mingcute-social-x-line',
-    link: `https://x.com/intent/tweet?text='${data.title}'&url='${encodeURIComponent(link)}'&via='${siteConfig.author}'`
+    link: `https://x.com/intent/tweet?text='${title}'&url='${encodeURIComponent(link)}'&via='${siteConfig.author}'`
   },
   bluesky: {
     icon: 'mingcute-bluesky-social-line',
-    link: `https://bsky.app/intent/compose?text=${data.title}%0A${encodeURIComponent(link)}`
+    link: `https://bsky.app/intent/compose?text=${title}%0A${encodeURIComponent(link)}`
   }
 }
 ---
@@ -48,8 +49,8 @@ const shares = {
 
   {/* title & link */}
   <div class='flex flex-col'>
-    <div class='font-medium text-foreground'>{data.title}</div>
-    <div class='text-sm'>{import.meta.env.SITE}/blog/{slug}</div>
+    <div class='font-medium text-foreground'>{title}</div>
+    <div class='text-sm'>{link}</div>
   </div>
 
   {/* common info */}
@@ -62,7 +63,7 @@ const shares = {
       <span>Published at</span>
       <span class='text-sm text-foreground max-sm:place-self-center'
         >{
-          getFormattedDate(data.publishDate, {
+          getFormattedDate(publishDate, {
             month: 'long'
           })
         }</span
@@ -132,7 +133,9 @@ const shares = {
 </div>
 
 <script>
-  import { showToast } from '@/utils'
+  // import { showToast } from '@/utils'
+  // Waitting for Astro v5 fix
+  import { showToast } from '@/utils/static'
 
   // Copy link
   const copyLink = document.getElementById('copy-link')

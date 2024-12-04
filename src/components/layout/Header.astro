@@ -103,7 +103,9 @@ import { menuLinks, siteConfig } from '@/site-config'
   }
 </script>
 <script>
-  import { setTheme, showToast } from '@/utils'
+  // import { setTheme, showToast } from '@/utils'
+  // Waitting for Astro v5 fix
+  import { setTheme, showToast } from '@/utils/static'
 
   class Header extends HTMLElement {
     constructor() {

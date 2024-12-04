@@ -152,7 +152,7 @@ span.katex-display {
   }
   & .highlighted,
   & .highlighted::before {
-    background-color: rgba(101, 117, 133, 0.32);
+    background-color: rgba(149, 166, 183, 0.32) !important;
   }
 
   & .diff {
