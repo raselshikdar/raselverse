@@ -14,6 +14,8 @@ import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 import { visualizer } from 'rollup-plugin-visualizer'
 
+import { pagefindConfig } from '@/plugins/pagefind.ts'
+
 // Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
 // Markdown
@@ -64,7 +66,8 @@ export default defineConfig({
     (await import('@playform/compress')).default({
       SVG: false,
       Exclude: ['index.*.js']
-    })
+    }),
+    pagefindConfig()
   ],
   // root: './my-project-directory',
 

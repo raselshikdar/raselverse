@@ -6,6 +6,6 @@ export const prod = import.meta.env.PROD
 export async function getBlogCollection(contentType: CollectionKey = 'blog') {
   return await getCollection(contentType, ({ data }: CollectionEntry<typeof contentType>) => {
     // Not in production & draft is true
-    return !prod || data.draft
+    return !prod || data.draft!
   })
 }
