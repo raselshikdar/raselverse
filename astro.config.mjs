@@ -63,10 +63,10 @@ export default defineConfig({
     sitemap(),
     mdx(),
     icon(),
-    (await import('@playform/compress')).default({
-      SVG: false,
-      Exclude: ['index.*.js']
-    }),
+    // (await import('@playform/compress')).default({
+    //   SVG: false,
+    //   Exclude: ['index.*.js']
+    // }),
     pagefindConfig()
   ],
   // root: './my-project-directory',
@@ -123,13 +123,13 @@ export default defineConfig({
         addCopyButton(2000)
       ]
     }
-  },
-  vite: {
-    plugins: [
-      visualizer({
-        emitFile: true,
-        filename: 'stats.html'
-      })
-    ]
   }
+  // vite: {
+  //   plugins: [
+  //     visualizer({
+  //       emitFile: true,
+  //       filename: 'stats.html'
+  //     })
+  //   ]
+  // }
 })

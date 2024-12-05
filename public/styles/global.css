@@ -124,7 +124,7 @@ span.katex-display {
       border-radius: 0.25rem;
       color: hsl(var(--muted-foreground) / var(--tw-text-opacity, 1));
       background-color: hsl(var(--primary-foreground) / var(--tw-bg-opacity, 1));
-      border: 1px solid hsl(var(--border));
+      border: 1px solid hsl(var(--border) / var(--tw-border-opacity, 1));
     }
     &.copied {
       & .success {
