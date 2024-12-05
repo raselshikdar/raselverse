@@ -11,6 +11,11 @@ export function pagefindConfig(): AstroIntegration {
         const targetDir = fileURLToPath(dir)
         const cwd = dirname(fileURLToPath(import.meta.url))
         const relativeDir = relative(cwd, targetDir)
+
+        console.log('Current Working Directory:', cwd)
+        console.log('Target Directory:', targetDir)
+        console.log('Relative Directory:', relativeDir)
+
         return new Promise<void>((resolve) => {
           spawn('npx', ['-y', 'pagefind', '--site', relativeDir], {
             stdio: 'inherit',

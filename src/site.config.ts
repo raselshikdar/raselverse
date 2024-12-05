@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
   // Meta property used as the default description meta property
   description: 'Stay hungry, stay foolish',
   // HTML lang property, found in src/layouts/Base.astro L:18
-  lang: 'en-US',
+  lang: 'en',
   // Meta property, found in src/components/BaseHead.astro L:42
   ogLocale: 'en_US',
   // Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.

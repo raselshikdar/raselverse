@@ -13,7 +13,8 @@ import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-import { visualizer } from 'rollup-plugin-visualizer'
+
+// import { visualizer } from 'rollup-plugin-visualizer'
 
 import { pagefindConfig } from './src/plugins/pagefind.ts'
 // Local rehype & remark plugins
