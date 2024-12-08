@@ -28,7 +28,7 @@ Next, we will introduce each aspect in detail.
 
 ### Configuration Files
 
-See [Configuration Files](/docs/integrations/configuration) for details.
+See [Configuration Files](/docs/setup/configuration) for details.
 
 #### Waline Comment System
 
