@@ -10,28 +10,14 @@ export function pagefindConfig(): AstroIntegration {
       'astro:build:done': ({ dir }) => {
         const targetDir = fileURLToPath(dir)
         const cwd = dirname(fileURLToPath(import.meta.url))
-        // const relativeDir = relative(cwd, targetDir)
-        const absoluteDir = targetDir.replace(/\\/g, '/')
-
-        console.log('Current Working Directory:', cwd)
-        console.log('Target Directory:', targetDir)
-        // console.log('Relative Directory:', relativeDir)
-        console.log('Absolute Directory for Site:', absoluteDir)
-        console.log('Output Directory for Pagefind:', `${targetDir}/pagefind`)
-        if (!absoluteDir || !targetDir) {
-          throw new Error('Invalid paths detected. Please check the build directories.')
-        }
+        const relativeDir = relative(cwd, targetDir)
 
         return new Promise<void>((resolve) => {
-          spawn(
-            'npx',
-            ['-y', 'pagefind', '--site', absoluteDir, '--output-path', `${targetDir}/pagefind`],
-            {
-              stdio: 'inherit',
-              shell: true,
-              cwd
-            }
-          ).on('close', () => resolve())
+          spawn('npx', ['-y', 'pagefind', '--site', relativeDir], {
+            stdio: 'inherit',
+            shell: true,
+            cwd
+          }).on('close', () => resolve())
         })
       }
     }
