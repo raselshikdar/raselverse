@@ -1,4 +1,4 @@
-import type { CardListData } from '@/types'
+import type { CardListData } from 'astro-pure/types'
 
 // Docs content declaration
 export const docs: CardListData = {
