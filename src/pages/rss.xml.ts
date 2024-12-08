@@ -29,7 +29,7 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
         if (node.url.startsWith('/images')) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
-          const imagePathPrefix = `/src/content/post/${post.id}/${node.url.replace('./', '')}`
+          const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
           const promise = imagesGlob[imagePathPrefix]?.().then(async (res) => {
             const imagePath = res?.default
             if (imagePath) {
@@ -64,8 +64,8 @@ const GET = async (context: AstroGlobal) => {
     stylesheet: '/scripts/pretty-feed-v3.xsl',
 
     // Contents
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: config.title,
+    description: config.description,
     site: import.meta.env.SITE,
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({

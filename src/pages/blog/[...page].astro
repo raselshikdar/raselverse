@@ -15,7 +15,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const uniqueTags = getUniqueTags(collections)
   const collectionsCount = collections.length
   return paginate(collections, {
-    pageSize: siteConfig.blog.pageSize,
+    pageSize: config.content.blogPageSize,
     props: { uniqueTags, collectionsCount }
   })
 }) satisfies GetStaticPaths

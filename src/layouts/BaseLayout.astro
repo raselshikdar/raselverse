@@ -14,12 +14,12 @@ interface Props {
 }
 
 const {
-  meta: { articleDate, description = siteConfig.description, ogImage, title },
+  meta: { articleDate, description = config.description, ogImage, title },
   highlightColor
 } = Astro.props
 ---
 
-<html lang={siteConfig.lang}>
+<html lang={config.locale.lang}>
   <head>
     <BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
     <ThemeProvider />
