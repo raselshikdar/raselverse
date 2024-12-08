@@ -1,23 +1,17 @@
 ---
 import type { MarkdownHeading } from 'astro'
-import PageLayout from '@/layouts/BaseLayout.astro'
 import type { CollectionEntry } from 'astro:content'
-
-import { Comment } from '@/components/advanced'
-import ArticleBottom from '@/components/blog/ArticleBottom.astro'
-import Copyright from '@/components/blog/Copyright.astro'
-import Hero from '@/components/blog/Hero.astro'
-import BackToTop from '@/components/pages/BackToTop.astro'
-import TOC from '@/components/pages/TOC.astro'
-import { Button } from '@/components/user'
 
 // Plugin styles
 import '@waline/client/style'
 import 'katex/dist/katex.min.css'
 
-import { MediumZoom } from '@/components/advanced'
-import { cn } from '@/utils'
-import { integrationConfig } from '@/site-config'
+import { Comment, MediumZoom } from 'astro-pure/advanced'
+import { ArticleBottom, BackToTop, Copyright, Hero, TOC } from 'astro-pure/components/pages'
+import { Button } from 'astro-pure/user'
+import { cn } from 'astro-pure/utils'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
 
 interface Props {
   post: CollectionEntry<'blog'>

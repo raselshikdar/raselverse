@@ -23,5 +23,7 @@
   "exports": {
     "./user": "./components/user/index.ts",
     "./advanced": "./components/advanced/index.ts",
+    "./components/pages": "./components/pages/index.ts",
+    "./components/basic": "./components/basic/index.ts",
   }
 }
