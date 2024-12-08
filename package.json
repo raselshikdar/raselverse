@@ -29,7 +29,7 @@
     "@waline/client": "^3.4.1",
     "astro": "^5.0.1",
     "astro-icon": "^1.1.4",
-    "astro-pure": "link:astro-pure",
+    "astro-pure": "1.1.0",
     "hast-util-select": "^6.0.3",
     "katex": "^0.16.11",
     "node-html-parser": "^6.1.13",
