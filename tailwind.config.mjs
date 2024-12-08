@@ -65,7 +65,10 @@ const typographyConfig = ({ theme }) => ({
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: [
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    './node_modules/astro-pure/components/**/*.astro'
+  ],
   darkMode: ['class'],
   safelist: ['dark'],
   plugins: [typography()],
