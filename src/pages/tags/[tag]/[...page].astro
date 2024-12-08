@@ -1,14 +1,12 @@
 ---
 import type { GetStaticPaths, Page } from 'astro'
-import PageLayout from '@/layouts/BaseLayout.astro'
 import type { CollectionEntry } from 'astro:content'
 
-import Pagination from '@/components/blog/Paginator.astro'
-import PostPreview from '@/components/blog/PostPreview.astro'
-import { Button } from '@/components/user'
-import { getUniqueTags, sortMDByDate } from '@/utils'
-import { getBlogCollection } from '@/utils/server'
-import { siteConfig } from '@/site-config'
+import { Paginator, PostPreview } from 'astro-pure/components/pages'
+import { getBlogCollection, getUniqueTags, sortMDByDate } from 'astro-pure/server'
+import { Button } from 'astro-pure/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
 
 export const prerender = true
 

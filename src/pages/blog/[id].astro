@@ -1,8 +1,8 @@
 ---
-import PostLayout from '@/layouts/BlogPost.astro'
 import { render, type CollectionEntry } from 'astro:content'
 
-import { getBlogCollection } from '@/utils/server'
+import { getBlogCollection } from 'astro-pure/server'
+import PostLayout from '@/layouts/BlogPost.astro'
 
 export const prerender = true
 

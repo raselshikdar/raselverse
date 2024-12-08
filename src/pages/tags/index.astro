@@ -1,9 +1,8 @@
 ---
+import { getBlogCollection, getUniqueTagsWithCount } from 'astro-pure/server'
+import { Button } from 'astro-pure/user'
+import { cn } from 'astro-pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
-
-import { Button } from '@/components/user'
-import { cn, getUniqueTagsWithCount } from '@/utils'
-import { getBlogCollection } from '@/utils/server'
 
 const allPosts = await getBlogCollection()
 const allTags = getUniqueTagsWithCount(allPosts)

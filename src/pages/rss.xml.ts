@@ -1,21 +1,20 @@
 import type { AstroGlobal, ImageMetadata } from 'astro'
-import rss from '@astrojs/rss'
 import { getImage } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
+import rss from '@astrojs/rss'
 import type { Root } from 'mdast'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
+import config from 'virtual:config'
 
-import { sortMDByDate } from '@/utils'
-import { getBlogCollection } from '@/utils/server'
-import { siteConfig } from '@/site-config'
+import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/post/**/*.{jpeg,jpg,png,gif}' // add more image formats if needed
+  '/src/content/blog/**/*.{jpeg,jpg,png,gif}' // add more image formats if needed
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {

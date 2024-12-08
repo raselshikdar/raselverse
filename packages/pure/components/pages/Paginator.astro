@@ -1,5 +1,9 @@
 ---
-import type { PaginationLink } from 'virtual:types'
+type PaginationLink = {
+  url: string
+  text?: string
+  srLabel?: string
+}
 
 interface Props {
   nextUrl?: PaginationLink
