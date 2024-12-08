@@ -1,0 +1,23 @@
+{
+  "name": "astro-pure",
+  "version": "1.0.0",
+  "description": "A simple, clean but powerful blog theme build by astro.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Astro",
+    "Theme",
+    "Blog"
+  ],
+  "author": "CWorld",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cworld1/astro-theme-pure",
+    "directory": "packages/pure"
+  },
+  "bugs": "https://github.com/cworld1/astro-theme-pure",
+  "homepage": "https://astro-pure.js.org/",
+  "type": "module",
+}
