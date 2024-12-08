@@ -1,12 +1,13 @@
 ---
-import { cn } from '@/utils'
-import { integrationConfig } from '@/site-config'
+import config from 'virtual:config'
+
+import { cn } from '../../utils'
 
 const { class: className } = Astro.props
 ---
 
 {
-  integrationConfig.waline.enable && (
+  config.integ.waline.enable && (
     <comment-component>
       <div id='waline' class={cn('not-prose', className)}>
         Comment seems to stuck. Try to refresh?✨
@@ -18,12 +19,11 @@ const { class: className } = Astro.props
 <script>
   import { init as walineInit } from '@waline/client'
   import type { WalineEmojiPresets } from '@waline/client'
-
-  import { integrationConfig, siteConfig } from '@/site-config'
+  import config from 'virtual:config'
 
   import '@waline/client/style'
 
-  const walineConfig = integrationConfig.waline
+  const walineConfig = config.integ.waline
 
   class Comment extends HTMLElement {
     constructor() {
@@ -39,7 +39,7 @@ const { class: className } = Astro.props
       ).__VUE_PROD_HYDRATION_MISMATCH_DETAILS__ = false
 
       const emoji = walineConfig.emoji?.map(
-        (preset) => `${siteConfig.npmCDN}/@waline/emojis@1.2.0/${preset}` as WalineEmojiPresets
+        (preset) => `${config.npmCDN}/@waline/emojis@1.2.0/${preset}` as WalineEmojiPresets
       )
 
       walineInit({
@@ -61,12 +61,12 @@ const { class: className } = Astro.props
     /* Font size */
     --waline-font-size: 16px;
     /* Basic color */
-    --waline-white: hsl(var(--background), var(--tw-bg-opacity, 1));
+    --waline-white: hsl(var(--background) / var(--tw-bg-opacity, 1));
     --waline-light-grey: #999;
     --waline-dark-grey: #666;
     /* Theme color */
-    --waline-theme-color: hsl(var(--foreground) / var(--tw-text-opacity, 1));
-    --waline-active-color: hsl(var(--primary) / var(--tw-text-opacity, 1));
+    --waline-theme-color: hsl(var(--foreground) / var(--tw-bg-opacity, 1));
+    --waline-active-color: hsl(var(--primary) / var(--tw-bg-opacity, 1));
     /* Layout */
     --waline-color: hsl(var(--muted-foreground) / var(--tw-text-opacity, 1));
     --waline-bg-color: hsl(var(--muted) / var(--tw-text-opacity, 1));

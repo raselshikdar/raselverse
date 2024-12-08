@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 
-import { cn, parseOpenGraph } from '@/utils'
+import { parseOpenGraph } from '../../plugins/link-preview'
+import { cn } from '../../utils'
 
 export interface Props {
   /** URL to fetch Open Graph data. */

@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '@/site-config'
+import config from 'virtual:config'
 
 const { content } = Astro.props
 ---
@@ -11,7 +11,7 @@ const { content } = Astro.props
 >
 </div>
 
-<script is:inline src={`${siteConfig.npmCDN}/qrcodejs/qrcode.min.js`}></script>
+<script is:inline src={`${config.npmCDN}/qrcodejs/qrcode.min.js`}></script>
 <script is:inline define:vars={{ content }}>
   const renderContent = content ?? window.location.href
   // Load qrcode

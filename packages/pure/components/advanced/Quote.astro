@@ -1,5 +1,5 @@
 ---
-import { cn } from '@/utils'
+import { cn } from '../../utils'
 
 const { class: className } = Astro.props
 ---
@@ -19,9 +19,9 @@ const { class: className } = Astro.props
 </quote-component>
 
 <script>
-  import { integrationConfig } from '@/site-config'
+  import config from 'virtual:config'
 
-  const { quote } = integrationConfig
+  const { quote } = config.integ
 
   class Quote extends HTMLElement {
     constructor() {

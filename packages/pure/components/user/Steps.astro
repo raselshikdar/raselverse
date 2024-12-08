@@ -1,6 +1,6 @@
 ---
 // https://github.com/withastro/starlight/blob/main/packages/starlight/user-components/Steps.astro
-import { processSteps } from '@/plugins/rehypeSteps'
+import { processSteps } from '../../plugins/rehype-steps'
 
 const content = await Astro.slots.render('default')
 const { html } = processSteps(content)

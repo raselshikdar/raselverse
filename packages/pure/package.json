@@ -20,4 +20,8 @@
   "bugs": "https://github.com/cworld1/astro-theme-pure",
   "homepage": "https://astro-pure.js.org/",
   "type": "module",
+  "exports": {
+    "./user": "./components/user/index.ts",
+    "./advanced": "./components/advanced/index.ts",
+  }
 }
