@@ -39,7 +39,7 @@ import { integrationConfig, siteConfig } from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: siteConfig.site,
+  site: 'https://astro-docs.vercel.app',
   // base: '/docs',
   trailingSlash: 'never',
 

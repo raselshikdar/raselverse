@@ -4,7 +4,7 @@
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/cworld1/astro-theme-pure?label=commits&style=flat-square)](https://github.com/cworld1/astro-theme-pure/commits)
 [![GitHub stars](https://img.shields.io/github/stars/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/stargazers)
-[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-theme-pure.vercel.app)](#)
+[![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
 [![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
 A simple, clean but powerful blog theme build by astro.
@@ -13,11 +13,11 @@ A simple, clean but powerful blog theme build by astro.
 
 ## Introduction
 
-Checkout [Demo Site →](https://astro-theme-pure.vercel.app/)
+Checkout [Demo Site →](https://astro-pure.js.org/)
 
 ## Usage
 
-[Docs](https://astro-theme-pure.vercel.app/docs/list) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
+[Docs](https://astro-pure.js.org/docs/list) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
 
 ## Local development
 
