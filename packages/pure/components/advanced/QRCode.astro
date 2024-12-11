@@ -1,15 +1,10 @@
 ---
 import config from 'virtual:config'
 
-const { content } = Astro.props
+const { content, class: className, ...props } = Astro.props
 ---
 
-<div
-  id='qrcode-container'
-  aria-expanded='false'
-  class='absolute z-10 -mt-2 box-content max-h-0 overflow-hidden rounded-xl border bg-muted p-4 opacity-0 transition-all duration-300 ease-in-out *:my-0 aria-expanded:max-h-[256px] aria-expanded:translate-y-4 aria-expanded:opacity-100'
->
-</div>
+<div id='qrcode-container' class={className} {...props}></div>
 
 <script is:inline src={`${config.npmCDN}/qrcodejs/qrcode.min.js`}></script>
 <script is:inline define:vars={{ content }}>
@@ -20,16 +15,7 @@ const { content } = Astro.props
     if (qrcodeContainer.innerHTML !== '') return
     new QRCode(qrcodeContainer, renderContent)
   }
-  const getQRCode = document.getElementById('get-qrcode')
-
   const qrcodeContainer = document.getElementById('qrcode-container')
   if (!qrcodeContainer) throw new Error('qrcode container not found')
-  getQRCode?.addEventListener('click', () => {
-    if (qrcodeContainer.ariaExpanded === 'true') {
-      qrcodeContainer.ariaExpanded = 'false'
-    } else {
-      loadqrcode(qrcodeContainer)
-      qrcodeContainer.ariaExpanded = 'true'
-    }
-  })
+  loadqrcode(qrcodeContainer)
 </script>
