@@ -1,11 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 
-import { Button, Collapse } from 'astro-pure/user'
+import type { iconsType } from 'astro-pure/types'
+import { Button, Collapse, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 import Sponsors from '@/components/projects/Sponsors.astro'
 import alipay from '@/assets/alipay-qrcode.jpg'
+import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
 
 const headings = [
@@ -57,9 +59,7 @@ const headings = [
     support my work or contact me to discuss a project.
   </p>
   <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
-    <svg class='size-5' slot='before'>
-      <use href='/icons/copyright-sponsor.svg#mingcute-receive-money-line'></use>
-    </svg>
+    <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
 
   <h2 id='theme'>Themes</h2>
@@ -171,9 +171,7 @@ const headings = [
     is <code>APTX4869</code>, and you can find it on the opengpg key servers or download from it.
   </p>
   <Button href='https://keys.openpgp.org/search?q=APTX4869' title='Checkout my key' target='_blank'>
-    <svg class='size-5' slot='before'>
-      <use href='/icons/project.svg#mingcute-key-2-line'></use>
-    </svg>
+    <KeyIcon class='size-5' slot='before' />
   </Button>
 
   <!-- sponsorship -->
@@ -182,14 +180,12 @@ const headings = [
   <div class='flex flex-col justify-center gap-4 sm:flex-row'>
     {
       [
-        { name: 'WeChat', icon: 'mingcute-wechat-pay-line', image: wechat },
-        { name: 'Alipay', icon: 'mingcute-alipay-line', image: alipay }
+        { name: 'WeChat', icon: 'wechat-pay', image: wechat },
+        { name: 'Alipay', icon: 'alipay', image: alipay }
       ].map((item) => (
         <div class='group relative justify-center overflow-hidden rounded-xl border bg-white'>
           <div class='absolute bottom-0 end-0 start-0 top-0 flex items-center justify-center transition-opacity group-hover:opacity-0'>
-            <svg class='size-20'>
-              <use href={`/icons/copyright-sponsor.svg#${item.icon}`} />
-            </svg>
+            <Icon class='size-20' name={item.icon as iconsType} />
           </div>
           <Image
             class='mx-auto my-0 max-w-60 opacity-30 blur-sm transition-opacity group-hover:opacity-100 group-hover:blur-none'
