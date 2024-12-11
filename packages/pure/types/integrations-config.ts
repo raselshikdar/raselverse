@@ -20,8 +20,8 @@ export const IntegrationConfigSchema = () =>
     quote: z.object({
       /** The server to fetch the quote from. */
       server: z.string(),
-      // target: (data: unknown) => string
-      target: z.function().args(z.unknown()).returns(z.string())
+      /** target: string, but (data: unknown) => string */
+      target: z.string()
     }),
 
     /** Tailwindcss typography */

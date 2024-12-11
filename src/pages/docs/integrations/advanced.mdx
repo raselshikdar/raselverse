@@ -26,12 +26,12 @@ import { Quote } from 'astro-pure/advanced'
 Config:
 
 ```ts title="src/site.config.ts"
-export const integrationConfig: IntegrationConfig = {
+export const integ: IntegrationUserConfig = {
   // Add a random quote to the footer (default on homepage footer)
   quote: {
     // https://github.com/lukePeavey/quotable
     server: 'https://api.quotable.io/quotes/random?maxLength=60', // [!code highlight:2]
-    target: (data) => (data as { content: string }[])[0].content || 'Error'
+    target: `(data) => data[0].content || 'Error'`
   }
 }
 ```

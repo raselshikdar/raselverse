@@ -35,9 +35,11 @@ const { class: className } = Astro.props
     }
 
     connectedCallback() {
+      // Because virtual:config can only be accessed using json string, function cannot work, so we need to use new Function
+      const targetFunction = new Function('return ' + quote.target)()
       fetch(quote.server)
         .then((response) => response.json())
-        .then((data) => this.render(quote.target(data)))
+        .then((data) => this.render(targetFunction(data)))
     }
   }
   customElements.define('quote-component', Quote)

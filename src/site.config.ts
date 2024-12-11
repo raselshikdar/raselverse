@@ -99,7 +99,7 @@ export const integ: IntegrationUserConfig = {
     // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
     server: 'https://api.quotable.io/quotes/random?maxLength=60',
-    target: (data) => (data as { content: string }[])[0].content || 'Error'
+    target: `(data) => data[0].content || 'Error'`
   },
   // Tailwindcss typography
   typography: {
