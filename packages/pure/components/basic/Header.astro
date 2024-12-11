@@ -5,97 +5,66 @@ import { Icon } from '../user'
 ---
 
 <header-component
-  class='group sticky top-4 z-30 mb-16 box-content w-full rounded-xl border border-transparent py-1 transition-all duration-300 sm:rounded-2xl [&.not-top]:border-border [&.not-top]:bg-background dark:[&.not-top]:bg-muted'
+  class='group sticky top-4 z-30 mb-12 flex items-center justify-between rounded-xl border border-transparent max-sm:py-1 sm:rounded-2xl [&.not-top]:border-border [&.not-top]:bg-background [&.not-top]:px-1.5 dark:[&.not-top]:bg-muted'
 >
-  <header class='flex flex-wrap text-sm sm:flex-nowrap sm:justify-start'>
-    <nav
-      class='relative mx-auto flex w-full items-center justify-between sm:flex sm:items-center'
-      aria-label='global'
+  <!-- <div
+      class='absolute -left-4 -top-8 -z-10 box-content hidden h-20 w-[calc(100%+2rem)] !duration-0 max-sm:group-[.expanded]:block max-sm:group-[.expanded.not-top]:hidden max-sm:group-[.expanded]:bg-white dark:max-sm:group-[.expanded]:bg-muted'
     >
-      <div
-        class='absolute -left-4 -top-8 -z-10 box-content hidden h-20 w-[calc(100%+2rem)] !duration-0 max-sm:group-[.expanded]:block max-sm:group-[.expanded.not-top]:hidden max-sm:group-[.expanded]:bg-white dark:max-sm:group-[.expanded]:bg-muted'
-      >
-      </div>
-      <a
-        class='flex-none text-xl font-semibold transition-all duration-300 group-[.not-top]:ms-3 sm:group-[.not-top]:ms-5'
-        href='/'
-        aria-label='Brand'>{config.title}</a
-      >
+    </div> -->
+  <a
+    class='z-30 text-xl font-semibold group-[.not-top]:ms-2 sm:group-[.not-top]:ms-3'
+    style='transition:margin-inline 0.3s'
+    href='/'
+    aria-label='Brand'>{config.title}</a
+  >
 
-      <!-- menu -->
-      <div class='flex gap-x-4 sm:gap-x-6'>
-        <div
-          id='headerExpandConetent'
-          class='end-0 start-0 top-12 z-20 grid transition-all duration-300 group-[.not-top]:rounded-xl group-[.expanded]:opacity-100 dark:group-[.expanded.not-top]:bg-muted max-md:border-b max-sm:absolute max-sm:pb-4 max-sm:pt-0 max-sm:opacity-0 max-sm:group-[.not-top]:border max-sm:group-[.expanded]:bg-background max-sm:group-[.not-top]:px-4 max-sm:group-[.not-top]:pb-2 max-sm:group-[.not-top]:pt-2 sm:grid-rows-1 sm:border-0'
-        >
-          <div
-            class='absolute -left-4 top-0 -z-10 box-content hidden h-full w-[calc(100%+2rem)] bg-white max-md:border-b max-sm:group-[.expanded]:block max-sm:group-[.expanded.not-top]:hidden dark:max-sm:group-[.expanded]:bg-muted'
-          >
-          </div>
-          <div
-            class='flex flex-col items-center justify-center gap-x-5 gap-y-2 overflow-hidden transition-colors sm:flex-row sm:gap-x-7'
-          >
-            {
-              config.header.menu.map((item) => (
-                <a
-                  href={item.link}
-                  class='w-full flex-none grow py-2 text-right text-[1.05rem] font-medium hover:text-primary sm:w-fit'
-                  aria-label='Nav Menu Item'
-                >
-                  {item.title}
-                </a>
-              ))
-            }
-            <div class='flex w-full grow flex-row justify-end gap-x-3 sm:w-fit sm:gap-x-5'>
-              {
-                /* <a class='px-1 py-2' href='https://www.travellings.cn/go.html' title='Travelling'>
-                <span class='sr-only'>Travelling</span>
-                <svg class='size-5'>
-                  <use href='/icons/header.svg#mingcute-train-2-line'></use>
-                </svg>
-              </a> */
-              }
-              <a class='px-1 py-2' href='/search' title='Search'>
-                <span class='sr-only'>Search</span>
-                <Icon name='search' class='size-5' />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- buttons -->
-        <div class='flex gap-x-4 transition-all group-[.not-top]:me-1.5 group-[.not-top]:gap-x-2'>
-          <button
-            id='toggleDarkMode'
-            class='group/dark box-content size-5 rounded-md border p-1.5 transition-colors hover:bg-border sm:group-[.not-top]:rounded-xl'
-          >
-            <span class='sr-only'>Dark Theme</span>
-            <Icon
-              class='system size-5 transition-colors group-hover/dark:text-primary'
-              name='computer'
-            />
-            <Icon
-              class='light hidden size-5 transition-colors group-hover/dark:text-primary'
-              name='sun'
-            />
-            <Icon
-              class='dark hidden size-5 transition-colors group-hover/dark:text-primary'
-              name='moon'
-            />
-          </button>
-          <button
-            id='toggleMenu'
-            class='rounded-md border p-1.5 transition-colors hover:bg-border sm:hidden sm:group-[.not-top]:rounded-xl'
-          >
-            <span class='sr-only'>Menu</span>
-            <svg class='size-5'>
-              <use href='/icons/header.svg#mingcute-menu-line'></use>
-            </svg>
-          </button>
+  <div class='flex items-center gap-x-2'>
+    {/* Menu links */}
+    <div
+      id='headerExpandConetent'
+      class='end-0 start-0 top-12 grid border border-transparent group-[.not-top]:rounded-xl group-[.expanded]:opacity-100 dark:group-[.expanded.not-top]:bg-muted max-sm:absolute max-sm:opacity-0 max-sm:group-[.not-top]:border-border max-sm:group-[.expanded.not-top]:bg-background max-sm:group-[.not-top]:px-4 max-sm:group-[.not-top]:py-2 sm:grid-rows-1'
+    >
+      <div class='flex flex-col items-center justify-center overflow-hidden sm:flex-row'>
+        {
+          config.header.menu.map((item) => (
+            <a
+              href={item.link}
+              class='w-full flex-none grow py-2 text-right font-medium transition-none hover:text-primary sm:w-fit sm:px-3'
+              aria-label='Nav menu item'
+            >
+              {item.title}
+            </a>
+          ))
+        }
+        <div class='flex w-full grow flex-row justify-end gap-x-3 sm:w-fit sm:gap-x-5'>
+          <a class='px-1 py-2 transition-none sm:px-2' href='/search' title='Search'>
+            <span class='sr-only'>Search</span>
+            <Icon name='search' class='size-5' />
+          </a>
         </div>
       </div>
-    </nav>
-  </header>
+    </div>
+
+    <!-- buttons -->
+    <div class='z-30 flex gap-x-4 group-[.not-top]:gap-x-2' style='transition:gap 0.3s'>
+      <button
+        id='toggleDarkMode'
+        class='group/dark box-content size-5 rounded-md border p-1.5 transition-colors hover:bg-border sm:group-[.not-top]:rounded-xl'
+      >
+        <span class='sr-only'>Dark Theme</span>
+        <Icon class='system size-5 group-hover/dark:text-primary' name='computer' />
+        <Icon class='light hidden size-5 group-hover/dark:text-primary' name='sun' />
+        <Icon class='dark hidden size-5 group-hover/dark:text-primary' name='moon' />
+      </button>
+      <button
+        id='toggleMenu'
+        class='rounded-md border p-1.5 transition-colors hover:bg-border sm:hidden sm:group-[.not-top]:rounded-xl'
+      >
+        <span class='sr-only'>Menu</span>
+        <Icon class='size-5' name='menu' />
+      </button>
+    </div>
+  </div>
 </header-component>
 
 {/* Use inline to load icon quicker firstly */}
@@ -106,7 +75,7 @@ import { Icon } from '../user'
   }
 </script>
 <script>
-  import { setTheme, showToast } from 'astro-pure/utils'
+  import { setTheme, showToast } from '../../utils'
 
   class Header extends HTMLElement {
     constructor() {
@@ -147,19 +116,28 @@ import { Icon } from '../user'
 </script>
 
 <style>
-  header-component.not-top {
-    box-shadow:
-      rgb(255, 255, 255) 0px 0px 0px 0px,
-      rgba(24, 24, 27, 0.08) 0px 0px 0px 1px,
-      rgba(39, 39, 42, 0.08) 0px 10px 15px -3px,
-      rgba(39, 39, 42, 0.08) 0px 4px 6px -4px;
-  }
-  header-component[data-show='false']:not(.expanded) {
-    transform: translateY(-5rem);
+  header-component {
+    transition:
+      padding 0.3s,
+      transform 0.3s,
+      margin-inline 0.3s,
+      border 0.15s,
+      background-color 0.15s;
+
+    &.not-top {
+      box-shadow:
+        rgb(255, 255, 255) 0px 0px 0px 0px,
+        rgba(24, 24, 27, 0.08) 0px 0px 0px 1px,
+        rgba(39, 39, 42, 0.08) 0px 10px 15px -3px,
+        rgba(39, 39, 42, 0.08) 0px 4px 6px -4px;
+    }
+    &[data-show='false']:not(.expanded) {
+      transform: translateY(-5rem);
+    }
   }
   @media (min-width: 800px) {
     header-component.not-top {
-      width: 80%;
+      margin-inline: 8%;
     }
   }
 
@@ -167,6 +145,11 @@ import { Icon } from '../user'
   @media (max-width: 640px) {
     #headerExpandConetent {
       grid-template-rows: 0fr;
+      transition:
+        opacity 0.3s,
+        padding 0.3s,
+        border-color 0.15s,
+        grid-template-rows 0.3s;
     }
     .expanded #headerExpandConetent {
       grid-template-rows: 1fr;
@@ -177,6 +160,28 @@ import { Icon } from '../user'
         rgba(24, 24, 27, 0.08) 0px 0px 0px 1px,
         rgba(39, 39, 42, 0.08) 0px 10px 15px -3px,
         rgba(39, 39, 42, 0.08) 0px 4px 6px -4px;
+    }
+
+    /* header component after */
+    header-component #headerExpandConetent::after {
+      box-sizing: content-box;
+      content: '';
+      position: absolute;
+      inset-inline: calc(-1rem - 1px);
+      bottom: 0;
+      top: -5rem;
+      z-index: -1;
+      transition: 0.3s;
+      visibility: hidden;
+      opacity: 0;
+      border-bottom: 1px solid transparent;
+    }
+    header-component:not(.not-top) #headerExpandConetent::after {
+      visibility: visible;
+      bottom: -1rem;
+      opacity: 1;
+      background-color: hsl(var(--muted) / var(--tw-bg-opacity, 1));
+      border-bottom-color: hsl(var(--border) / var(--tw-border-opacity, 1));
     }
   }
 
