@@ -2,9 +2,8 @@
 import type { CollectionKey, InferEntrySchema } from 'astro:content'
 import config from 'virtual:config'
 
-import { QRCode } from 'astro-pure/advanced'
-import { cn, getFormattedDate } from 'astro-pure/utils'
-
+import { cn, getFormattedDate } from '../../utils'
+import { QRCode } from '../advanced'
 import { Icon } from '../user'
 
 interface Props {
@@ -125,7 +124,7 @@ const shares = {
 </div>
 
 <script>
-  import { showToast } from 'astro-pure/utils'
+  import { showToast } from '../../utils'
 
   // Copy link
   const copyLink = document.getElementById('copy-link')
