@@ -9,7 +9,7 @@ interface Props {
   class?: string
 }
 
-const { name, label, size = '1em', color, class: className } = Astro.props
+const { name, label, size = '1em', color, class: className, ...props } = Astro.props
 const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden': 'true' } as const)
 ---
 
@@ -21,6 +21,7 @@ const a11yAttrs = label ? ({ 'aria-label': label } as const) : ({ 'aria-hidden':
   viewBox='0 0 24 24'
   fill='currentColor'
   set:html={Icons[name]}
+  {...props}
 />
 
 <style define:vars={{ 'sl-icon-color': color, 'sl-icon-size': size }}>
