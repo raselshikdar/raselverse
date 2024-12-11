@@ -12,18 +12,15 @@ const meta = {
 ---
 
 <PageLayout {meta}>
-  <div class='w-full'>
-    <Button title='Back' href='/blog' style='back' />
-    <h1 class='mb-6 mt-6 text-3xl font-medium sm:mt-10'>Search</h1>
+  <Button title='Back' href='/blog' style='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>Search</h1>
+    </div>
 
-    <p class='animate'>
-      Enter a search term or phrase to search the blog. If you cannot find what you want, try <a
-        class='underline'
-        href='https://cse.google.com.hk/cse?cx=220579155cae140a0'
-        target='_blank'>Google Powered</a
-      > one.
-    </p>
-    <!-- <Search class='animate' /> -->
-    <PFSearch class='animate' />
-  </div>
+    <div id='content' class='animate'>
+      <p>Enter a search term or phrase to search the blog.</p>
+      <PFSearch />
+    </div>
+  </main>
 </PageLayout>

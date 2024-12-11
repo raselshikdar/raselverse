@@ -13,11 +13,11 @@ const meta = {
 ---
 
 <PageLayout {meta}>
-  <div class='w-full'>
-    <Button title='Back' href='/' style='back' />
-    <h1 id='content-header' class='animate mb-6 mt-6 text-3xl font-medium sm:mt-10'>
-      Docs of Astro Theme Pure
-    </h1>
+  <Button title='Back' href='/' style='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>Docs of Astro Theme Pure</h1>
+    </div>
 
     <div
       id='content'
@@ -34,5 +34,5 @@ const meta = {
         > for community support.
       </p>
     </div>
-  </div>
+  </main>
 </PageLayout>
