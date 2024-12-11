@@ -103,6 +103,9 @@ export default defineConfig({
         addCopyButton(2000)
       ]
     }
+  },
+  experimental: {
+    svg: true
   }
   // vite: {
   //   plugins: [
