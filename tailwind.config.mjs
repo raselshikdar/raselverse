@@ -16,7 +16,8 @@ const typographyConfig = ({ theme }) => ({
       '--tw-prose-pre-code': fgMuted,
       '--tw-prose-pre-bg': bgMuted,
 
-      'h2, h3, h4, h5, h6, h7': {
+      'h2, h3, h4, h5, h6': {
+        scrollMarginTop: '3rem',
         '& > a': {
           marginInlineStart: '0.75rem',
           color: fgMuted,
