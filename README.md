@@ -7,7 +7,19 @@
 [![vercel status](https://img.shields.io/website?down_message=offline&label=vercel&logo=vercel&style=flat-square&up_message=online&url=https%3A%2F%2Fastro-pure.js.org)](#)
 [![GitHub license](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat-square)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
 
-A simple, fast and powerful blog theme built by astro.
+A simple, fast and powerful blog theme built by Astro.
+
+> [!CAUTION]
+> 🚧🚧🚧 We are currently on develop about upgrading to Astro v5 and developing npm package method 🚧🚧🚧
+>
+> Known issues for new version:
+>
+> 1. Cannot use Node v22 on Vercel ([waiting for new release](https://github.com/withastro/adapters/issues/471))
+> 2. Cannot pack sitemap and pagefind resources on Vercel ([waiting for fixing](https://github.com/withastro/astro/issues/12663))
+>
+> If you want to have a stable experience, try [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4) instead. We'll release new version if the it is enough stable for users. And any feedback of newly unreleased code is also welcome.
+>
+> （除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
 
 ![image](./.github/assets/header.webp)
 ![image](./.github/assets/body.webp)
@@ -55,31 +67,26 @@ Clone the repository:
 
 ```shell
 git clone https://github.com/cworld1/astro-theme-pure.git
-```
-
-Install dependencies:
-
-```shell
 cd astro-theme-pure
+```
+
+Useful commands:
+
+```shell
+# install dependencies
 bun install
-```
 
-Start the development server:
-
-```shell
+# start the dev server
 bun dev
-```
 
-Or build (you may need to use node.js SSR firstly):
-
-```shell
+# build the project
 bun run build
-```
 
-Preview:
-
-```shell
+# preview (after the build)
 bun preview
+
+# create a new post
+bun new-post
 ```
 
 ## Contributions
@@ -90,6 +97,7 @@ To spend more time coding and less time fiddling with whitespace, this project u
 
 - [Astro Cactus](https://github.com/chrismwilliams/astro-theme-cactus)
 - [Astro Resume](https://github.com/srleom/astro-theme-resume)
+- [Starlight](https://github.com/withastro/starlight)
 
 ## License
 
