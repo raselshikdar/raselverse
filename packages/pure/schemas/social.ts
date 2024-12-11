@@ -12,7 +12,8 @@ export const socialLinks = [
   'email',
   'reddit',
   'bluesky',
-  'tiktok'
+  'tiktok',
+  'steam'
 ] as const
 
 export const SocialLinksSchema = () =>
@@ -40,7 +41,8 @@ export const SocialLinksSchema = () =>
           email: 'Email',
           reddit: 'Reddit',
           bluesky: 'BlueSky',
-          tiktok: 'TikTok'
+          tiktok: 'TikTok',
+          steam: 'Steam'
         }[key]
         labelledLinks[key] = { label, url }
       }
