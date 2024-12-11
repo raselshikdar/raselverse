@@ -3,9 +3,10 @@ title: The Impact of Technology on the Music World
 publishDate: 2024-11-30
 description: 'The evolution of music is a symphony of creativity, rhythm, and technology.'
 tags:
-  - Markdown
   - Example
-heroImage: { src: './thumbnail.jpg', color: '#B4C6DA' }
+  - Music
+  - Technology
+heroImage: { src: './thumbnail.jpg', color: '#4891B2' }
 language: 'English'
 ---
 
