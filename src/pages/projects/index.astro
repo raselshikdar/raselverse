@@ -9,38 +9,15 @@ import Sponsors from '@/components/projects/Sponsors.astro'
 import alipay from '@/assets/alipay-qrcode.jpg'
 import KeyIcon from '@/assets/icons/key.svg'
 import wechat from '@/assets/wechat-qrcode.jpg'
+import config from '@/site-config'
 
 const headings = [
-  {
-    depth: 2,
-    slug: 'theme',
-    text: 'Theme'
-  },
-  {
-    depth: 2,
-    slug: 'programs',
-    text: 'Programs'
-  },
-  {
-    depth: 2,
-    slug: 'learnings',
-    text: 'Learnings'
-  },
-  {
-    depth: 2,
-    slug: 'others',
-    text: 'Others'
-  },
-  {
-    depth: 2,
-    slug: 'gpg-signature',
-    text: 'GPG Signature'
-  },
-  {
-    depth: 2,
-    slug: 'sponsorship',
-    text: 'Sponsorship'
-  }
+  { depth: 2, slug: 'theme', text: 'Theme' },
+  { depth: 2, slug: 'programs', text: 'Programs' },
+  { depth: 2, slug: 'learnings', text: 'Learnings' },
+  { depth: 2, slug: 'others', text: 'Others' },
+  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
+  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
 ]
 ---
 
@@ -208,16 +185,19 @@ const headings = [
   />
 </PageLayout>
 
-<script is:inline type='module' data-astro-rerun>
-  import config from '/src/site.config.ts'
-
+<script
+  is:inline
+  type='module'
+  data-astro-rerun
+  define:vars={{ npmCDN: config.npmCDN, walineServer: config.integ.waline.server }}
+>
   const loadPageviewCount = async () => {
-    const pageviewCount = await import(`${config.npmCDN}/@waline/client@v3/dist/pageview.js`)
-    pageviewCount({
-      serverURL: siteConfig.commonPage.walineServerUrl,
+    const pageview = await import(`${npmCDN}/@waline/client@v3/dist/pageview.js`)
+    pageview.pageviewCount({
+      serverURL: walineServer,
       path: window.location.pathname
     })
   }
 
-  loadPageviewCount()
+  await loadPageviewCount()
 </script>
