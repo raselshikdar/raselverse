@@ -1,3 +1,5 @@
+import { Icons } from '../libs/icons'
+
 export type { IntegrationUserConfig } from './integrations-config'
 export type { ThemeUserConfig } from './theme-config'
 export type { UserInputConfig as Config } from './user-config'
@@ -24,4 +26,5 @@ export type TimelineEvent = {
   date: string
   content: string
 }
-export * from 'virtual:types'
+
+export type iconsType = keyof typeof Icons

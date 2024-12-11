@@ -2,6 +2,8 @@
 import type { ImageMetadata } from 'astro'
 import { Image } from 'astro:assets'
 
+import { iconsType } from 'astro-pure/types'
+import { Icon } from 'astro-pure/user'
 import { cn } from 'astro-pure/utils'
 
 interface Props {
@@ -20,6 +22,12 @@ const { class: className, project, ...props } = Astro.props
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/projects/*.{jpeg,jpg,png,gif}'
 )
+const projectIconSet: Record<string, iconsType> = {
+  github: 'github-circle',
+  site: 'earth',
+  doc: 'document',
+  release: 'package'
+}
 ---
 
 <div class={cn('animate', className)} {...props}>
@@ -71,16 +79,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               </div>
               <div class='flex flex-row items-center gap-x-2 sm:gap-x-3'>
                 {project.links.map((link) => {
-                  const iconId =
-                    link.type === 'github'
-                      ? 'mingcute-github-2-line'
-                      : link.type === 'site'
-                        ? 'mingcute-earth-2-line'
-                        : link.type === 'doc'
-                          ? 'mingcute-document-3-line'
-                          : link.type === 'release'
-                            ? 'mingcute-package-2-line'
-                            : null
+                  const icon = projectIconSet[link.type]
                   return (
                     <a
                       href={link.href}
@@ -88,9 +87,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                       aria-label={link.type}
                       target='_blank'
                     >
-                      <svg class='size-5'>
-                        <use href={`/icons/project.svg#${iconId}`} />
-                      </svg>
+                      <Icon class='size-5' name={icon} />
                     </a>
                   )
                 })}

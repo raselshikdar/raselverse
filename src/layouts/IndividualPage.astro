@@ -2,7 +2,7 @@
 import type { MarkdownHeading, MarkdownLayoutProps } from 'astro'
 
 import { BackToTop, TOC } from 'astro-pure/components/pages'
-import { Button } from 'astro-pure/user'
+import { Button, Icon } from 'astro-pure/user'
 import { cn } from 'astro-pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
 import config from '@/site-config'
@@ -48,9 +48,7 @@ const socialImage = heroImage?.src ?? '/images/social-card.png'
                 // Language
                 language && (
                   <span class='flex items-center gap-1'>
-                    <svg class='size-5'>
-                      <use href='/icons/project.svg#mingcute-earth-2-line' />
-                    </svg>
+                    <Icon name='earth' class='size-16' />
                     {language}
                   </span>
                 )
