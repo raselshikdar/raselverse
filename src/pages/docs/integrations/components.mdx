@@ -299,3 +299,58 @@ import { Label } from 'astro-pure/user'
 <Label title='Hello' />
 
 There's also some [Advanced Components](/docs/integrations/advanced), which may suit for you. Hope you enjoy using these components!
+
+## Resources
+
+### Icon
+
+```jsx
+import { Icon } from 'astro-pure/user'
+
+<Icon name='rss' class='size-5' />
+
+<br />
+// You can also check all icons available
+// (click button to copy)
+
+import { Icons as allIcons } from 'astro-pure/libs'
+import { Button } from 'astro-pure/user'
+
+<div class='flex flex-wrap gap-2'>
+{
+  Object.keys(allIcons).map(icon => {
+    const script = `navigator.clipboard.writeText('${icon}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied ${icon} to clipboard!'}}))`
+    return (
+      <Button as='button' type='button' class='cursor-pointer' onClick={script}>
+        <Icon slot='before' name={icon} class='size-5' />
+        <span>{icon}</span>
+      </Button>
+    )
+  })
+}
+</div>
+```
+
+Renders:
+
+import { Icon } from 'astro-pure/user'
+
+<Icon name='rss' class='size-5' />
+
+<br />
+
+import { Icons as allIcons } from 'astro-pure/libs'
+
+<div class='flex flex-wrap gap-2'>
+{
+  Object.keys(allIcons).map(icon => {
+    const script = `navigator.clipboard.writeText('${icon}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied ${icon} to clipboard!'}}))`
+    return (
+      <Button as='button' type='button' class='cursor-pointer' onClick={script}>
+        <Icon slot='before' name={icon} class='size-5' />
+        <span>{icon}</span>
+      </Button>
+    )
+  })
+}
+</div>

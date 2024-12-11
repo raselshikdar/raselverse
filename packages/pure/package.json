@@ -28,7 +28,8 @@
     "./components/basic": "./components/basic/index.ts",
     "./utils": "./utils/index.ts",
     "./server": "./utils/server.ts",
-    "./types": "./types/index.ts"
+    "./types": "./types/index.ts",
+    "./libs": "./libs/index.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.1",
