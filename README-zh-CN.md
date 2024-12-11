@@ -57,6 +57,10 @@
 
 [文档](https://astro-pure.js.org/docs/list) | [展示台](https://github.com/cworld1/astro-theme-pure/issues/10)
 
+## NPM 包
+
+在 NPM 上查看：[astro-theme-pure](https://www.npmjs.com/package/astro-pure)
+
 ## 本地开发
 
 环境要求：

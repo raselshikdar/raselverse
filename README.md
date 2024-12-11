@@ -57,6 +57,10 @@ Theme includes a lot of components, which can not only be used in the theme, but
 
 [Docs](https://astro-pure.js.org/docs/list) | [Showcase](https://github.com/cworld1/astro-theme-pure/issues/10)
 
+## Package
+
+See [astro-theme-pure](https://www.npmjs.com/package/astro-pure) on npm.
+
 ## Local development
 
 Environment requirements:
