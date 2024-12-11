@@ -14,7 +14,7 @@ import { Aside, Tabs, TabItem } from 'astro-pure/user'
 Checkout [medium-zoom](https://github.com/francoischalifour/medium-zoom) for more.
 
 ```ts title="src/site.config.ts"
-export const integrationConfig: IntegrationConfig = {
+export const integ: IntegrationUserConfig = {
   // ...
   // A lightbox library that can add zoom effect
   mediumZoom: {
@@ -87,7 +87,7 @@ const typographyConfig = ({ theme }) => ({
 And it will be applied to class list configuration:
 
 ```ts title="src/site.config.ts"
-export const integrationConfig: IntegrationConfig = {
+export const integ: IntegrationUserConfig = {
   // ...
   typography: {
     class: 'prose prose-pure dark:prose-invert dark:prose-pure prose-headings:font-medium' // [!code highlight]

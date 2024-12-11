@@ -174,7 +174,7 @@ The theme file structure is as follows:
    You can configure your project inside the `src/site.config.ts` configuration file:
 
    ```ts title="src/site.config.ts"
-   export const siteConfig: SiteConfig = {
+   export const theme: ThemeUserConfig = {
       author: 'CWorld / Arthals',
       title: 'Astro Theme Pure',
       site: 'https://astro-pure.js.org',
@@ -183,7 +183,7 @@ The theme file structure is as follows:
    }
 
    export const footerConfig: FooterConfig = { /* ... */ }
-   export const integrationConfig: IntegrationConfig = { /* ... */ }
+   export const integ: IntegrationUserConfig = { /* ... */ }
    // ...
    ```
 
