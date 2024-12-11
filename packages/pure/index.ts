@@ -1,7 +1,9 @@
 import { spawn } from 'node:child_process'
 import { dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
+// Astro
 import type { AstroIntegration, RehypePlugins, RemarkPlugins } from 'astro'
+// Integrations
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
