@@ -94,17 +94,13 @@ const postDate = data.updatedDate ?? data.publishDate
             <div class='flex items-center gap-2 py-1.5 text-sm italic leading-4 text-muted-foreground sm:py-3'>
               {/* reading time */}
               <span class='flex items-center gap-1'>
-                <svg class='size-4'>
-                  <use href='/icons/ui.svg#mingcute-time-line' />
-                </svg>
+                <Icon name='time' class='size-4' />
                 {remarkPluginFrontmatter.minutesRead}
               </span>
               {/* language */}
               {data.language && (
                 <span class='flex items-center gap-1'>
-                  <svg class='size-4'>
-                    <use href='/icons/project.svg#mingcute-earth-2-line' />
-                  </svg>
+                  <Icon name='earth' class='size-4' />
                   {data.language}
                 </span>
               )}

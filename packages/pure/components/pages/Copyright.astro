@@ -20,15 +20,12 @@ const image = typeof heroImage?.src === 'string' ? heroImage?.src : (heroImage?.
 
 const shares = {
   weibo: {
-    icon: 'mingcute-weibo-line',
     link: `http://service.weibo.com/share/share.php?url=${Astro.url}&title=${title}&pic=${image}`
   },
   x: {
-    icon: 'mingcute-social-x-line',
     link: `https://x.com/intent/tweet?text='${title}'&url='${Astro.url}'&via='${config.author}'`
   },
   bluesky: {
-    icon: 'mingcute-bluesky-social-line',
     link: `https://bsky.app/intent/compose?text=${title}%0A${Astro.url}`
   }
 } as const
@@ -40,9 +37,7 @@ const shares = {
     className
   )}
 >
-  <svg class='absolute end-4 top-4 size-20 opacity-10'>
-    <use href='/icons/copyright-sponsor.svg#mingcute-copyright-line'></use>
-  </svg>
+  <Icon class='absolute end-4 top-4 size-20 opacity-10' name='copyright' />
 
   {/* title & link */}
   <div class='flex flex-col'>
@@ -116,10 +111,8 @@ const shares = {
     class='flex justify-between text-muted-foreground no-underline'
     target='_blank'
   >
-    <div>Buy me a cup of coffee ☕.</div>
-    <svg class='m-1 size-5'>
-      <use href='/icons/copyright-sponsor.svg#mingcute-receive-money-line'></use>
-    </svg>
+    <span>Buy me a cup of coffee ☕.</span>
+    <Icon class='box-content size-5 p-1' name='receive-money' />
   </a>
 </div>
 
