@@ -3,7 +3,7 @@ export function getTheme() {
 }
 
 export function listenThemeChange(theme?: string) {
-  if (!theme || theme === 'system') return // if theme is specified, no need to listen window theme change
+  if (theme && theme !== 'system') return // if theme is specified, no need to listen window theme change
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     setTheme(e.matches ? 'dark' : 'light')
   })
