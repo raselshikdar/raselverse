@@ -21,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "astro-pure": "./scripts/index.js"
+    "astro-pure": "scripts/index.js"
   },
   "exports": {
     ".": "./index.ts",
