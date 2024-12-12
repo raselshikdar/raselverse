@@ -41,7 +41,7 @@ export default defineConfig({
 })
 ```
 
-### Static
+### Node server
 
 If you are deploying with Node.js locally, you need to install `@astrojs/node` first:
 
@@ -59,6 +59,26 @@ export default defineConfig({
   //   ...
   adapter: vercelServerless() // [!code --]
   adapter: node({ mode: 'standalone' }) // [!code ++]
+})
+```
+
+### Bun server
+
+Bun also support static method.
+
+Check [@nurodev/astro-bun](https://www.npmjs.com/package/@nurodev/astro-bun) for more.
+
+### Static
+
+Remove all server adapter configuration in `astro.config.ts`:
+
+```ts title="astro.config.ts"
+import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless(), // [!code --]
+  output: 'server', // [!code --]
 })
 ```
 
