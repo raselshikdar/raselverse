@@ -79,7 +79,7 @@ export const addLanguage = (): ShikiTransformer => {
         'span',
         {
           class:
-            'language transition-opacity duration-300 absolute top-3 right-3 text-sm text-muted-foreground select-none'
+            'language transition-opacity duration-300 absolute top-3 right-0 ps-1 pe-3 text-sm bg-muted text-muted-foreground select-none'
         },
         this.options.lang
       )

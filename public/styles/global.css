@@ -32,8 +32,11 @@ html.dark {
 #content-header {
   animation-delay: 50ms;
 }
-#sidebar {
+#content {
   animation-delay: 100ms;
+}
+#sidebar {
+  animation-delay: 150ms;
 }
 
 /* Katex */
@@ -75,7 +78,7 @@ span.katex-display {
       }
 
       & .line {
-        padding-inline-end: 0.75rem;
+        padding-inline-end: 3rem;
         &::before {
           position: sticky;
           content: counter(step);
