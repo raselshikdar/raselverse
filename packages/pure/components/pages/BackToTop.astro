@@ -1,4 +1,6 @@
 ---
+import { Icon } from '../user'
+
 const { header: headerName, content: contentName, needPercent = true } = Astro.props
 ---
 
@@ -14,11 +16,10 @@ const { header: headerName, content: contentName, needPercent = true } = Astro.p
     <span class='text'>10</span>
     <span class='text-xs'>%</span>
   </div>
-  <svg
-    class='size-6 opacity-0 transition-opacity group-hover:opacity-100 group-[.ended]:opacity-100'
-  >
-    <use href='/icons/ui.svg#mingcute-up-line'></use>
-  </svg>
+  <Icon
+    name='up'
+    class='opacity-0 transition-opacity group-hover:opacity-100 group-[.ended]:opacity-100'
+  />
 </button>
 
 <script is:inline define:vars={{ headerName, contentName, needPercent }}>
