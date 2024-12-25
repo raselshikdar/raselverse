@@ -3,13 +3,14 @@
 import { AstroError } from 'astro/errors'
 
 import { cn } from '../../utils'
+import Icon from './Icon.astro'
 
 const asideVariants = ['note', 'tip', 'caution', 'danger'] as const
 const icons = {
-  note: 'ui.svg#mingcute-information-line',
-  tip: 'aside.svg#mingcute-bulb-line',
-  caution: 'aside.svg#mingcute-alert-line',
-  danger: 'aside.svg#mingcute-alert-octagon-line'
+  note: 'info',
+  tip: 'bulb',
+  caution: 'alert',
+  danger: 'octangon'
 } as const
 
 interface Props {
@@ -37,9 +38,7 @@ if (!title) {
     class={cn('aside-container border-l-8 border-primary px-4 py-3 bg-primary', `aside-${type}`)}
   >
     <p class='not-prose flex items-center gap-x-2 font-medium text-primary' aria-hidden='true'>
-      <svg class='size-6 text-primary'>
-        <use href={`/icons/${icons[type]}`}></use>
-      </svg>
+      <Icon name={icons[type]} />
       {title}
     </p>
     <div class='aside-content mt-2'>
