@@ -5,18 +5,21 @@
 一个由 Astro 构建的轻便简洁、快速强大的博客主题。
 
 [![GitHub deployments](https://img.shields.io/github/deployments/cworld1/astro-theme-pure/production?style=flat&logo=vercel&label=vercel)](https://astro-pure.js.org/)
-[![NPM Version](https://img.shields.io/npm/v/astro-pure?style=flat)](https://www.npmjs.com/package/astro-pure)
+[![NPM Version](https://img.shields.io/npm/v/astro-pure?logo=npm&style=flat)](https://www.npmjs.com/package/astro-pure)
+[![GitHub Release](https://img.shields.io/github/v/release/cworld1/astro-theme-pure?include_prereleases&style=flat&label=template)](https://github.com/cworld1/astro-theme-pure/releases)
 [![GitHub License](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
-> [!CAUTION]
-> 🚧🚧🚧 我们目前正在做有关升级到 Astro v5 和使用 NPM 包方法的工作 🚧🚧🚧
->
-> 新版本的已知问题：a. 无法在Vercel上使用Node v22（[等待新版本](https://github.com/withastro/adapters/issues/471)）; b. 无法在Vercel上打包站点地图和页面查找资源（[等待修复](https://github.com/withastro/astro/issues/12663)）
->
-> 如果你想有一个稳定的体验，请使用 [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4)，直到新版本对普通用户来说足够稳定，我们才会发布新版本。欢迎对未发布的新代码提供任何反馈。（除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
 
 ![image](./.github/assets/header.webp)
 ![image](./.github/assets/body.webp)
+
+> [!CAUTION]
+> 我们目前正在积极开发升级到 Astro v5 和 NPM 包方法。新版本已知问题：
+>
+> 1. 无法在 Vercel 上打包站点地图和 pagefind 资源（[需要上游修复](https://github.com/withastro/astro/issues/12663) & 临时修复）
+> 2. Head 标签和自定义选项仍在开发中（已经暴露模板直接改）
+> 3. Rehype 标题链接在 NPM 模块链接方法中无法按预期工作（用户无影响）
+>
+> 稳定版本目前为 [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4)。
 
 ## 简介
 

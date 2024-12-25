@@ -5,18 +5,21 @@
 A simple, fast and powerful blog theme built by Astro.
 
 [![GitHub deployments](https://img.shields.io/github/deployments/cworld1/astro-theme-pure/production?style=flat&logo=vercel&label=vercel)](https://astro-pure.js.org/)
-[![NPM Version](https://img.shields.io/npm/v/astro-pure?style=flat)](https://www.npmjs.com/package/astro-pure)
+[![NPM Version](https://img.shields.io/npm/v/astro-pure?logo=npm&style=flat)](https://www.npmjs.com/package/astro-pure)
+[![GitHub Release](https://img.shields.io/github/v/release/cworld1/astro-theme-pure?include_prereleases&style=flat&label=template)](https://github.com/cworld1/astro-theme-pure/releases)
 [![GitHub License](https://img.shields.io/github/license/cworld1/astro-theme-pure?style=flat)](https://github.com/cworld1/astro-theme-pure/blob/main/LICENSE)
-
-> [!CAUTION]
-> 🚧🚧🚧 We are currently on develop about upgrading to Astro v5 and developing npm package method 🚧🚧🚧
->
-> Known issues for new version: a. Cannot use Node v22 on Vercel ([waiting for new release](https://github.com/withastro/adapters/issues/471)); b. Cannot pack sitemap and pagefind resources on Vercel ([waiting for fixing](https://github.com/withastro/astro/issues/12663))
->
-> If you want to have a stable experience, try [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4) instead. We'll release new version if the it is enough stable for users. And any feedback of newly unreleased code is also welcome.（除非你只是来帮忙做测试，请不要在任何生产环境中使用非稳定版本！）
 
 ![image](./.github/assets/header.webp)
 ![image](./.github/assets/body.webp)
+
+> [!CAUTION]
+> We are currently on develop about upgrading to Astro v5 and developing npm package method. Known issues for new version:
+>
+> 1. Cannot pack sitemap and pagefind resources on Vercel ([need upstream fix](https://github.com/withastro/astro/issues/12663) & temp fixed)
+> 2. Header & customize options is still under development (template exposed still)
+> 3. rehype headings link works not as expected in module linking method (no effect)
+>
+> Stabler experience is currently on [v3.1.4](https://github.com/cworld1/astro-theme-pure/tree/v3.1.4).
 
 ## Introduction
 
