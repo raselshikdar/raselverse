@@ -7,13 +7,13 @@ import vercel from '@astrojs/vercel'
 import icon from 'astro-icon'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
+// import { visualizer } from 'rollup-plugin-visualizer'
 // Rehype & remark packages
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
 
-// import { visualizer } from 'rollup-plugin-visualizer'
-
-// import { pagefindConfig } from './src/plugins/pagefind.ts'
+// Local integrations
+import { outputCopier } from './src/plugins/output-copier.ts'
 // Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
 // Markdown
@@ -58,12 +58,14 @@ export default defineConfig({
     // sitemap(),
     // mdx(),
     // tailwind({ applyBaseStyles: false }),
-    AstroPureIntegration(config)
+    AstroPureIntegration(config),
     // (await import('@playform/compress')).default({
     //   SVG: false,
     //   Exclude: ['index.*.js']
     // }),
-    // pagefindConfig()
+    outputCopier({
+      integ: ['sitemap', 'pagefind']
+    })
   ],
   // root: './my-project-directory',
 
