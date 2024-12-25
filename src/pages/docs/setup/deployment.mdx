@@ -57,8 +57,14 @@ import node from '@astrojs/node' // [!code ++]
 
 export default defineConfig({
   //   ...
-  adapter: vercelServerless() // [!code --]
-  adapter: node({ mode: 'standalone' }) // [!code ++]
+  adapter: vercelServerless(), // [!code --]
+  adapter: node({ mode: 'standalone' }), // [!code ++]
+
+  integrations: [
+    outputCopier({ // [!code --]
+      integ: ['sitemap', 'pagefind'] // [!code --]
+    }) // [!code --]
+  ]
 })
 ```
 

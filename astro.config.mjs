@@ -63,6 +63,9 @@ export default defineConfig({
     //   SVG: false,
     //   Exclude: ['index.*.js']
     // }),
+
+    // Temporary fix vercel adapter
+    // static build method is not needed
     outputCopier({
       integ: ['sitemap', 'pagefind']
     })
