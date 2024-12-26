@@ -7,10 +7,12 @@ import vercel from '@astrojs/vercel'
 import icon from 'astro-icon'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
-// import { visualizer } from 'rollup-plugin-visualizer'
 // Rehype & remark packages
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+
+// Others
+// import { visualizer } from 'rollup-plugin-visualizer'
 
 // Local integrations
 import { outputCopier } from './src/plugins/output-copier.ts'
