@@ -5,7 +5,7 @@ import { BackToTop, PageInfo, TOC } from 'astro-pure/components/pages'
 import { Button } from 'astro-pure/user'
 import { cn } from 'astro-pure/utils'
 import PageLayout from '@/layouts/BaseLayout.astro'
-import config from '@/site-config'
+import { integ } from '@/site-config'
 
 interface Props {
   title: string
@@ -50,7 +50,7 @@ const { title, headings, info, ...props } = Astro.props
       </div>
       <div
         id='content'
-        class={cn('max-w-none animate mt-8 md:min-w-[45ch]', config.integ.typography.class)}
+        class={cn('max-w-none animate mt-8 md:min-w-[45ch]', integ.typography.class)}
       >
         <slot />
       </div>

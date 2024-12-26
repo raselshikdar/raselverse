@@ -4,6 +4,7 @@ import PageLayout from '@/layouts/BaseLayout.astro'
 // import Search from '@/components/search/FuseSearch.astro'
 
 import PFSearch from '@/components/search/PFSearch.astro'
+import { integ } from '@/site-config'
 
 const meta = {
   description: 'Search relative posts of the whole blog',
@@ -19,8 +20,16 @@ const meta = {
     </div>
 
     <div id='content' class='animate'>
-      <p>Enter a search term or phrase to search the blog.</p>
-      <PFSearch />
+      {
+        integ.pagefind ? (
+          <>
+            <p>Enter a search term or phrase to search the blog.</p>
+            <PFSearch />
+          </>
+        ) : (
+          <p>Pagefind is disabled.</p>
+        )
+      }
     </div>
   </main>
 </PageLayout>
