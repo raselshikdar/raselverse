@@ -26,7 +26,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   updateStyle
-} from './src/plugins/shikiTransformers.ts'
+} from './src/plugins/shiki-transformers.ts'
 import config from './src/site.config.ts'
 
 // https://astro.build/config
