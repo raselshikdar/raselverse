@@ -117,7 +117,7 @@ export const ThemeConfigSchema = () =>
       menu: HeaderMenuSchema()
     }),
 
-    /** Configure the header of your site. */
+    /** Configure the footer of your site. */
     footer: z.object({
       /** Registration information for ICP (optional) */
       registration: z.object({

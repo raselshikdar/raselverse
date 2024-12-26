@@ -7,7 +7,7 @@ export const IntegrationConfigSchema = () =>
     links: FriendLinksSchema(),
 
     /**
-     * Define whether Starlight’s default site search provider Pagefind is enabled.
+     * Define whether default site search provider Pagefind is enabled.
      * Set to `false` to disable indexing your site with Pagefind.
      * This will also hide the default search UI if in use.
      */
