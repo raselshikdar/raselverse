@@ -18,8 +18,6 @@ import remarkMath from 'remark-math'
 import { outputCopier } from './src/plugins/output-copier.ts'
 // Local rehype & remark plugins
 import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
-// Markdown
-import { remarkArxivCards, remarkReadingTime } from './src/plugins/remarkPlugins.ts'
 // Shiki
 import {
   addCopyButton,
@@ -82,7 +80,7 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkReadingTime, remarkMath, remarkArxivCards],
+    remarkPlugins: [remarkMath],
     rehypePlugins: [
       [rehypeKatex, {}],
       rehypeHeadingIds,

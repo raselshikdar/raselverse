@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import rehypeExternalLinks from 'rehype-external-links'
 
-import { remarkAddZoomable } from './plugins/remark-plugins'
+import { remarkAddZoomable, remarkReadingTime } from './plugins/remark-plugins'
 import { vitePluginUserConfig } from './plugins/virtual-user-config'
 import { UserConfigSchema, type UserInputConfig } from './types/user-config'
 import { parseWithFriendlyErrors } from './utils/error-map'
@@ -44,6 +44,7 @@ export default function AstroPureIntegration(opts: UserInputConfig): AstroIntegr
         // Add supported remark plugins based on user config.
         if (userConfig.integ.mediumZoom.enable)
           remarkPlugins.push([remarkAddZoomable, userConfig.integ.mediumZoom.options])
+        remarkPlugins.push(remarkReadingTime)
 
         // Add supported rehype plugins based on user config.
         rehypePlugins.push([

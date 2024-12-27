@@ -13,11 +13,9 @@ function serialize(value: unknown, includeImageAlt: boolean, includeHtml: boolea
     if ('value' in value) {
       return value.type === 'html' && !includeHtml ? '' : (value.value as string)
     }
-
     if (includeImageAlt && 'alt' in value && value.alt) {
       return value.alt as string
     }
-
     if ('children' in value) {
       return serializeAll(value.children as unknown[], includeImageAlt, includeHtml)
     }
@@ -26,7 +24,6 @@ function serialize(value: unknown, includeImageAlt: boolean, includeHtml: boolea
   if (Array.isArray(value)) {
     return serializeAll(value, includeImageAlt, includeHtml)
   }
-
   return ''
 }
 
