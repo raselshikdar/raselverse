@@ -4,7 +4,6 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 // Adapter
 import vercel from '@astrojs/vercel'
 // Integrations
-import icon from 'astro-icon'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
 // Rehype & remark packages
@@ -53,7 +52,6 @@ export default defineConfig({
   },
 
   integrations: [
-    icon(),
     // astro-pure will automatically add sitemap, mdx & tailwind
     // sitemap(),
     // mdx(),
@@ -111,13 +109,13 @@ export default defineConfig({
   },
   experimental: {
     svg: true
+  },
+  vite: {
+    // plugins: [
+    //   visualizer({
+    //     emitFile: true,
+    //     filename: 'stats.html'
+    //   })
+    // ]
   }
-  // vite: {
-  //   plugins: [
-  //     visualizer({
-  //       emitFile: true,
-  //       filename: 'stats.html'
-  //     })
-  //   ]
-  // }
 })
