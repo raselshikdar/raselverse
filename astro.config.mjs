@@ -17,7 +17,7 @@ import remarkMath from 'remark-math'
 // Local integrations
 import { outputCopier } from './src/plugins/output-copier.ts'
 // Local rehype & remark plugins
-import rehypeAutolinkHeadings from './src/plugins/rehypeAutolinkHeadings.ts'
+import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
 // Shiki
 import {
   addCopyButton,
