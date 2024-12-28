@@ -28,3 +28,5 @@ export type TimelineEvent = {
 }
 
 export type iconsType = keyof typeof Icons
+
+export { socialLinks } from './constants'
