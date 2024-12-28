@@ -10,7 +10,9 @@ const { width } = Astro.props
   <div class='mdx-repl-container flex flex-col items-center justify-center p-4'>
     <slot />
   </div>
-  <slot name='desc' />
+  <div class='bg-muted'>
+    <slot name='desc' />
+  </div>
 </div>
 
 <style define:vars={{ width }}>
@@ -42,8 +44,5 @@ const { width } = Astro.props
   /* Tabs */
   .mdx-repl :global(div[role='tabpanel']) {
     margin-top: 0;
-  }
-  .mdx-repl :global(div.tablist-wrapper) {
-    background-color: hsl(var(--input) / var(--tw-bg-opacity, 1));
   }
 </style>
