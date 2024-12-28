@@ -14,7 +14,29 @@ import { Aside } from 'astro-pure/user'
 
 ## Breaking Changes
 
-### v4.0.0
+### v4.0.1-beta
+
+- Change svg deliver import to custom import svg element. This will affect using component for `ToolSelection`. You should change:
+
+  (Optional) Move icons to new path like `src/assets/icons/`
+
+  Then change using code (default at `src/pages/about/index.astro`)
+
+  ```ts title="src/pages/about/index.astro"
+  <ToolSection
+    ...
+    tools={[
+      {
+        name: 'Arch Linux',
+        description: 'Linux Distribution',
+        href: 'https://archlinux.org/',
+        iconPath: 'archlinux' // [!code --]
+        icon: import('@/assets/icons/archlinux.svg?raw') // [!code ++]
+      }
+    ]},
+  />
+
+### v4.0.0-alpha
 
 - Move all components, types and utils that are reused to new npm packages `astro-pure`. Affected components are included in . Import method is also changed:
 
