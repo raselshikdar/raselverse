@@ -17,7 +17,6 @@ const { as: Tag = 'div', post, detailed = false, class: className } = Astro.prop
 const { id, data } = post
 
 const { remarkPluginFrontmatter } = await render(post)
-
 const postDate = data.updatedDate ?? data.publishDate
 ---
 

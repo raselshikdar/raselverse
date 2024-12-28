@@ -1,6 +1,8 @@
 ---
 import config from 'virtual:config'
 
+import '@waline/client/style'
+
 import { cn } from '../../utils'
 
 const { class: className } = Astro.props
@@ -20,8 +22,6 @@ const { class: className } = Astro.props
   import { init as walineInit } from '@waline/client'
   import type { WalineEmojiPresets } from '@waline/client'
   import config from 'virtual:config'
-
-  import '@waline/client/style'
 
   const walineConfig = config.integ.waline
 
