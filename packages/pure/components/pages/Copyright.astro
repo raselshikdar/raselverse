@@ -90,13 +90,13 @@ const shares = {
       </button>
       {
         config.content.share.map((share) => (
-          <a href={shares[share].link} target='_blank'>
-            <button
-              id={`share-${share}`}
-              class='group rounded-full bg-muted p-1 text-muted-foreground transition-colors hover:text-primary sm:p-1.5'
-            >
-              <Icon class='size-5' name={share} />
-            </button>
+          <a
+            href={shares[share].link}
+            target='_blank'
+            id={`share-${share}`}
+            class='group rounded-full bg-muted p-1 text-muted-foreground transition-colors hover:text-primary sm:p-1.5'
+          >
+            <Icon class='size-5' name={share} />
           </a>
         ))
       }

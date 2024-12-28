@@ -22,7 +22,10 @@ const typographyConfig = ({ theme }) => ({
           marginInlineStart: '0.75rem',
           color: fgMuted,
           transition: 'opacity 0.2s ease',
-          opacity: '0'
+          opacity: '0',
+          '&:focus': {
+            opacity: 1
+          }
         },
         '&:hover > a, &:target > a': {
           opacity: '1'
