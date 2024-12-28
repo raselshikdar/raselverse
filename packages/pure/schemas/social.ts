@@ -1,20 +1,6 @@
 import { z } from 'astro/zod'
 
-export const socialLinks = [
-  'github',
-  'gitlab',
-  'discord',
-  'youtube',
-  'instagram',
-  'x',
-  'telegram',
-  'rss',
-  'email',
-  'reddit',
-  'bluesky',
-  'tiktok',
-  'steam'
-] as const
+import { socialLinks } from '../types/constants'
 
 export const SocialLinksSchema = () =>
   z
@@ -42,7 +28,12 @@ export const SocialLinksSchema = () =>
           reddit: 'Reddit',
           bluesky: 'BlueSky',
           tiktok: 'TikTok',
-          steam: 'Steam'
+          weibo: 'Weibo',
+          steam: 'Steam',
+          bilibili: 'Bilibili',
+          zhihu: 'Zhihu',
+          coolapk: 'Coolapk',
+          netease: 'NetEase'
         }[key]
         labelledLinks[key] = { label, url }
       }
