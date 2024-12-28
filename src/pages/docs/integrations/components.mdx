@@ -371,9 +371,9 @@ import { Label } from 'astro-pure/user'
 <div>
 import { Icon } from 'astro-pure/user'
 
-<Icon name='rss' class='size-5' />
+Single use: <Icon name='rss' class='inline' />
 
-<br />
+Preview all icons available (click button to copy):
 
 import { Icons as allIcons } from 'astro-pure/libs'
 
@@ -383,7 +383,7 @@ import { Icons as allIcons } from 'astro-pure/libs'
     const script = `navigator.clipboard.writeText('${icon}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied "${icon}" to clipboard!'}}))`
     return (
       <Button as='button' type='button' class='cursor-pointer' onClick={script}>
-        <Icon slot='before' name={icon} class='size-5' />
+        <Icon slot='before' name={icon} />
         <span>{icon}</span>
       </Button>
     )
@@ -396,11 +396,9 @@ import { Icons as allIcons } from 'astro-pure/libs'
   ```jsx
   import { Icon } from 'astro-pure/user'
 
-  <Icon name='rss' class='size-5' />
+  Single use: <Icon name='rss' class='inline' />
 
-  <br />
-  // You can also check all icons available
-  // (click button to copy)
+  Preview all icons available (click button to copy):
 
   import { Icons as allIcons } from 'astro-pure/libs'
   import { Button } from 'astro-pure/user'
@@ -411,7 +409,7 @@ import { Icons as allIcons } from 'astro-pure/libs'
       const script = `navigator.clipboard.writeText('${icon}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied "${icon}" to clipboard!'}}))`
       return (
         <Button as='button' type='button' class='cursor-pointer' onClick={script}>
-          <Icon slot='before' name={icon} class='size-5' />
+          <Icon slot='before' name={icon} />
           <span>{icon}</span>
         </Button>
       )
