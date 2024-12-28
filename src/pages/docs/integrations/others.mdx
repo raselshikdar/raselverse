@@ -5,7 +5,7 @@ title: 'Other Integrations'
 description: 'Other integrations that help improve your site'
 ---
 
-import { Aside, Tabs, TabItem } from 'astro-pure/user'
+import { Aside, Tabs, TabItem, Steps } from 'astro-pure/user'
 
 <Aside>Docs are still in progress.</Aside>
 
@@ -96,3 +96,77 @@ export const integ: IntegrationUserConfig = {
 ```
 
 Checkout [tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography) for more.
+
+## Friend-Circle-Lite
+
+See [Friend Links #Integrated with `Friend-Circle-Lite`](/docs/integrations/links#integrated-with-friend-circle-lite).
+
+## LateX support
+
+In case any time in the future this theme removes default support for LateX, there's a tutorial to help you add support for it.
+
+Rendering LaTeX in Astro.js enriches your markdown files with mathematical expressions, making your content both engaging and informative. The following steps outline the necessary steps to integrate LaTeX into Astro.js and addresses potential pitfalls along with their solutions.
+
+<Steps>
+
+1. Install Necessary Packages
+
+   Begin by installing `remark-math` and `rehype-katex`. These packages parse and render LaTeX respectively. Use the install commands:
+
+   ```shell
+   bun install remark-math rehype-katex
+   ```
+
+2. Configure Astro
+
+   Modify your Astro configuration to use these plugins. Add the plugins to the markdown configuration section in your astro.config.mjs:
+
+   ```js title="astro.config.mjs"
+   import { defineConfig } from 'astro/config';
+   import remarkMath from 'remark-math';
+   import rehypeKatex from 'rehype-katex';
+
+   export default defineConfig({
+      // ...
+      markdown: {
+         remarkPlugins: [remarkMath],
+         rehypePlugins: [rehypeKatex],
+      },
+   });
+   ```
+
+3. Include KaTeX CSS
+
+   To ensure that LaTeX formulas are styled correctly, include the KaTeX CSS in your HTML layout (in this theme it would be in the `BlogPost.astro` file). Add the following css resources:
+
+   ```astro title="src/layouts/BlogPost.astro"
+   ---
+   import 'katex/dist/katex.min.css'
+   ---
+   ```
+
+   Or use CDN to fasten speed:
+
+   ```astro title="src/layouts/BlogPost.astro"
+   ---
+   import config from '@/site-config'
+   ---
+   <link rel="stylesheet" href={`${config.npmCDN}/katex@0.16.15/dist/katex.min.css`}>
+   ```
+
+</Steps>
+
+Common Pitfalls and Solutions:
+
+
+- CSS Styling Issues
+  
+  Problem: LaTeX formulas might not render with the correct styles if the KaTeX CSS isn’t loaded.
+
+  Solution: Confirm the KaTeX stylesheet link is correctly placed in the HTML head and is loading without issues. Check for network errors or restrictions that might prevent the CSS from loading.
+
+- Build Errors
+
+  Problem: Errors during build time when processing LaTeX syntax.
+
+  Solution: Ensure that your LaTeX is correctly formatted and that there are no syntax errors in your markdown files. LaTeX syntax errors can break the parser and cause build failures.
