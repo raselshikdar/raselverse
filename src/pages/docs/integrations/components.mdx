@@ -363,6 +363,23 @@ import { Label } from 'astro-pure/user'
 </Fragment>
 </MdxRepl>
 
+### SVG Loader
+
+
+<MdxRepl>
+import { Svg } from 'astro-pure/user'
+
+<Svg src={import('@/assets/icons/key.svg?raw')} />
+
+<Fragment slot='desc'>
+  ```jsx
+  import { Svg } from 'astro-pure/user'
+
+  <Svg src={import('@/assets/icons/key.svg?raw')} />
+  ```
+</Fragment>
+</MdxRepl>
+
 ## Resources
 
 ### Icon
