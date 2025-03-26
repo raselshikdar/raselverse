@@ -30,7 +30,7 @@ import config from './src/site.config.ts'
 export default defineConfig({
   // Top-Level Options
   site: 'https://fildefrost.github.io',
-  //base: '/docs',
+  // base: '/docs',
   trailingSlash: 'never',
 
   // Adapter
@@ -111,4 +111,12 @@ export default defineConfig({
     svg: true,
     contentIntellisense: true
   },
+  vite: {
+    plugins: [
+      //   visualizer({
+      //     emitFile: true,
+      //     filename: 'stats.html'
+      //   })
+    ]
+  }
 })
