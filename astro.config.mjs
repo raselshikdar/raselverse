@@ -30,7 +30,7 @@ import config from './src/site.config.ts'
 export default defineConfig({
   // Top-Level Options
   site: 'https://fildefrost.github.io',
-  // base: '/docs',
+  //base: '/docs',
   trailingSlash: 'never',
 
   // Adapter
