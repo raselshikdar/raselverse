@@ -113,10 +113,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      //   visualizer({
-      //     emitFile: true,
-      //     filename: 'stats.html'
-      //   })
+         visualizer({
+           emitFile: true,
+           filename: 'stats.html'
+         })
     ]
   }
 })
