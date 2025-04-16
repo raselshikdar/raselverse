@@ -57,13 +57,11 @@ export const theme: ThemeUserConfig = {
 
   /** Configure the footer of your site. */
   footer: {
-    links: [
-      // Registration link
-      {
-        title: 'Moe ICP APTX4869',
-        link: 'https://icp.gov.moe/?keyword=APTX4869',
-        style: 'text-sm' // Uno/TW CSS class
-      },
+    // Registration information for ICP (optional)
+    registration: {
+      url: 'https://icp.gov.moe/?keyword=20240147',
+      text: '萌备20240147'
+    },
       {
         title: 'Travelling',
         link: 'https://www.travellings.cn/go.html',
