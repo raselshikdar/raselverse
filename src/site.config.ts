@@ -47,12 +47,12 @@ export const theme: ThemeUserConfig = {
   /** Configure the header of your site. */
   header: {
     menu: [
-      { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
-      { title: 'About', link: '/about' }
-    ]
+  { title: 'Blog', link: '/blog' },
+  { title: 'About', link: '/about' },
+  { title: 'Projects', link: '/projects' },
+  { title: 'Links', link: '/links' },
+  { title: 'Docs', link: '/docs' }
+]
   },
 
   /** Configure the footer of your site. */
