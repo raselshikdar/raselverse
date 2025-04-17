@@ -66,7 +66,7 @@ Clone the repository:
 
 ```shell
 git clone https://github.com/raselshikdar/raselverse.git
-cd astro-theme-pure
+cd raselverse
 ```
 
 Useful commands:
