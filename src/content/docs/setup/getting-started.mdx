@@ -25,7 +25,7 @@ Astro has a great article teaching you setting up project: [Install and set up A
    <Tabs>
    <TabItem label='bun'>
    ```shell
-   bun create astro@latest --template cworld1/astro-theme-pure
+   bun create astro@latest --template raselshikdar/raselverse
    ```
    <Aside type='tip'>
    For Bun, if the installation is slow, it is recommended to use a mirror configuration by creating `bunfig.toml` under the project root directory:
@@ -40,22 +40,22 @@ Astro has a great article teaching you setting up project: [Install and set up A
    </TabItem>
    <TabItem label='pnpm'>
    ```shell
-   pnpm create astro@latest --template cworld1/astro-theme-pure
+   pnpm create astro@latest --template raselshikdar/raselverse
    ```
    </TabItem>
    <TabItem label='yarn'>
    ```shell
-   yarn create astro --template cworld1/astro-theme-pure
+   yarn create astro --template raselshikdar/raselverse
    ```
    </TabItem>
    <TabItem label='npm'>
    ```shell
-   npm create astro@latest -- --template cworld1/astro-theme-pure
+   npm create astro@latest -- --template raselshikdar/raselverse
    ```
    </TabItem>
    </Tabs>
 
-   By default, this command will use the template repository’s main branch. To use a different branch name, pass it as part of the `--template` argument: `cworld1/astro-theme-pure#<branch>`.
+   By default, this command will use the template repository’s main branch. To use a different branch name, pass it as part of the `--template` argument: `raselshikdar/raselverse#<branch>`.
 
 2. Answer the questions and follow the instructions of the CLI wizard.
 
@@ -67,7 +67,7 @@ Astro has a great article teaching you setting up project: [Install and set up A
 
 ### Install Using Fork
 
-You only need to [click fork button at theme repository](https://github.com/cworld1/astro-theme-pure/fork) to create your project; then clone the forked repository to your local machine.
+You only need to [click fork button at theme repository](https://github.com/raselshikdar/raselverse/fork) to create your project; then clone the forked repository to your local machine.
 
 ```shell
 git clone https://github.com/<your-username>/astro-theme-pure.git
@@ -191,10 +191,10 @@ The theme file structure is as follows:
 
    ```ts title="src/site.config.ts"
    export const theme: ThemeUserConfig = {
-      author: 'CWorld',
-      title: 'Astro Theme Pure',
-      site: 'https://astro-pure.js.org',
-      description: 'Stay hungry, stay foolish',
+      author: 'Rasel Shikdar',
+      title: 'raselverse',
+      site: 'raselverse.vercel.app',
+      description: 'Rise, reflect and strive.',
       // ...
    }
 
