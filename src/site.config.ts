@@ -111,9 +111,10 @@ export const integ: IntegrationUserConfig = {
     // https://github.com/lukePeavey/quotable
     server: '/quotes.json',
   target: `(data) => {
-    const randomIndex = Math.floor(Math.random() * data.length);
-    return data[randomIndex].quote || 'Error';
-  }`
+  const randomIndex = Math.floor(Math.random() * data.length);
+  const quote = data[randomIndex];
+  return \`\${quote.quote} — \${quote.reference}\` || 'Error';
+}`
 },
   // Tailwindcss typography
   // See: https://raselverse.vercel.app/docs/integrations/others#tailwindcsstypography
