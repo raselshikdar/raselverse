@@ -1,7 +1,42 @@
 [
-  { "quote": "Indeed, Allah is with the patient." },
-  { "quote": "And whoever puts their trust in Allah, then He will suffice him." },
-  { "quote": "So remember Me; I will remember you." },
-  { "quote": "Verily, with hardship comes ease." },
-  { "quote": "Allah does not burden a soul beyond that it can bear." }
+  {
+    "quote": "Indeed, Allah is with the patient.",
+    "reference": "Surah Al-Baqarah (2:153)"
+  },
+  {
+    "quote": "And whoever puts their trust in Allah, then He will suffice him.",
+    "reference": "Surah At-Talaq (65:3)"
+  },
+  {
+    "quote": "So remember Me; I will remember you.",
+    "reference": "Surah Al-Baqarah (2:152)"
+  },
+  {
+    "quote": "Verily, with hardship comes ease.",
+    "reference": "Surah Ash-Sharh (94:6)"
+  },
+  {
+    "quote": "Allah does not burden a soul beyond that it can bear.",
+    "reference": "Surah Al-Baqarah (2:286)"
+  },
+  {
+    "quote": "Indeed, the help of Allah is near.",
+    "reference": "Surah Al-Baqarah (2:214)"
+  },
+  {
+    "quote": "Call upon Me; I will respond to you.",
+    "reference": "Surah Ghafir (40:60)"
+  },
+  {
+    "quote": "He created the heavens and the earth in truth.",
+    "reference": "Surah Al-An'am (6:73)"
+  },
+  {
+    "quote": "My mercy encompasses all things.",
+    "reference": "Surah Al-A'raf (7:156)"
+  },
+  {
+    "quote": "And He found you lost and guided [you].",
+    "reference": "Surah Ad-Duhaa (93:7)"
+  }
 ]
