@@ -1,7 +1,7 @@
 ---
 title: Personalized Customization Guide
 publishDate: 2024-07-27
-description: 'astro-theme-pure Personalized Customization Guide'
+description: 'raselverse Personalized Customization Guide'
 tags:
   - Waline
   - Vercel
@@ -12,7 +12,7 @@ language: 'English'
 
 ## Site Configuration
 
-[astro-theme-pure](https://github.com/raselshikdar/raselverse)
+[raselverse](https://github.com/raselshikdar/raselverse)
 
 Customizing this theme requires adjusting a significant amount of source code.
 
