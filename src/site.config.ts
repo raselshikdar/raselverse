@@ -98,6 +98,9 @@ export const integ: IntegrationUserConfig = {
   },
   // Enable page search function
   pagefind: true,
+  // Add a random quote to the footer (default on homepage footer)
+  // See: https://raselverse.vercel.app/docs/integrations/advanced#web-content-render
+  quote: false,
   // Tailwindcss typography
   // See: https://raselverse.vercel.app/docs/integrations/others#tailwindcsstypography
   typography: {
