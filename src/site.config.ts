@@ -3,11 +3,11 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Astro Theme Pure',
+  title: 'Rasel Shikdar\'s Blog',
   /** Will be used in index page & copyright declaration */
-  author: 'Pure Lab',
+  author: 'Rasel Shikdar',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: 'My personal blogging universe!',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** Specify the default language for this site. */
@@ -38,7 +38,7 @@ export const theme: ThemeUserConfig = {
     /* Telegram channel */
     // {
     //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
+    //   attrs: { name: 'telegram:channel', content: '@rasel597' },
     //   content: ''
     // }
   ],
@@ -65,7 +65,7 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { github: 'https://github.com/raselshikdar' }
   },
 
   content: {
@@ -80,7 +80,7 @@ export const theme: ThemeUserConfig = {
 
 export const integ: IntegrationUserConfig = {
   // Links menagement
-  // See: https://astro-pure.js.org/docs/integrations/links
+  // See: https://raselverse.vercel.app/docs/integrations/links
   links: {
     // Friend logbook
     logbook: [
@@ -92,14 +92,14 @@ export const integ: IntegrationUserConfig = {
     applyTip: [
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+      { name: 'Link', val: 'https://raselverse.vercel.app/' },
+      { name: 'Avatar', val: 'https://raselverse.vercel.app/favicon/favicon.ico' }
     ]
   },
   // Enable page search function
   pagefind: true,
   // Add a random quote to the footer (default on homepage footer)
-  // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
+  // See: https://raselverse.vercel.app/docs/integrations/advanced#web-content-render
   quote: {
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
     // server: 'https://v1.hitokoto.cn/?c=i',
@@ -109,13 +109,13 @@ export const integ: IntegrationUserConfig = {
     target: `(data) => data[0].content || 'Error'`
   },
   // Tailwindcss typography
-  // See: https://astro-pure.js.org/docs/integrations/others#tailwindcsstypography
+  // See: https://raselverse.vercel.app/docs/integrations/others#tailwindcsstypography
   typography: {
     // https://github.com/tailwindlabs/tailwindcss-typography
     class: 'prose text-base text-muted-foreground'
   },
   // A lightbox library that can add zoom effect
-  // See: https://astro-pure.js.org/docs/integrations/others#medium-zoom
+  // See: https://raselverse.vercel.app/docs/integrations/others#medium-zoom
   mediumZoom: {
     enable: true, // disable it will not load the whole library
     selector: '.prose .zoomable',
@@ -127,7 +127,7 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://raselverse-waline.vercel.app/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
