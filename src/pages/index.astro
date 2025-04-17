@@ -168,6 +168,20 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       </Section>
     </div>
     <section>
+  <style>
+    @keyframes wave {
+      0% { transform: rotateZ(0deg) scaleX(1); }
+      25% { transform: rotateZ(1deg) scaleX(1.01); }
+      50% { transform: rotateZ(0deg) scaleX(1); }
+      75% { transform: rotateZ(-1deg) scaleX(1.01); }
+      100% { transform: rotateZ(0deg) scaleX(1); }
+    }
+    .animate-wave {
+      animation: wave 1.8s infinite ease-in-out;
+      transform-origin: left center;
+    }
+  </style>
+
   {/* Get template */}
   <a
     href='https://github.com/cworld1/astro-theme-pure'
@@ -178,7 +192,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
       <img
         src='https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg'
         alt='Palestine flag'
-        class='h-4 w-6 rounded-sm object-cover'
+        class='h-4 w-6 rounded-sm object-cover animate-wave'
       />
     </span>
     <p class='font-medium text-muted-foreground'>Get Template</p>
