@@ -65,7 +65,11 @@ export const theme: ThemeUserConfig = {
     /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/raselshikdar' }
+    social: {
+      github: 'https://github.com/raselshikdar',
+      telegram: 'https://t.me/rasel597',
+      email: 'mailto:raselshikdar597@gmail.com'
+    }
   },
 
   content: {
