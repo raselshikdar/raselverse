@@ -7,11 +7,11 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cworld1/astro-theme-pure.git",
+    "url": "git+https://github.com/raselshikdar/raselverse.git",
     "directory": "packages/pure"
   },
-  "bugs": "https://github.com/cworld1/astro-theme-pure",
-  "homepage": "https://astro-pure.js.org/",
+  "bugs": "https://github.com/raselshikdar/raselverse",
+  "homepage": "https://raselverse.vercel.app/",
   "keywords": [
     "Astro",
     "Theme",
