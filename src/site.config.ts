@@ -109,8 +109,11 @@ export const integ: IntegrationUserConfig = {
     // server: 'https://v1.hitokoto.cn/?c=i',
     // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
-    server: 'https://api.aladhan.com/v1/greetings',
-  target: `(data) => data.data || 'Error'`
+    server: '/quotes.json',
+  target: `(data) => {
+    const randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex].quote || 'Error';
+  }`
 },
   // Tailwindcss typography
   // See: https://raselverse.vercel.app/docs/integrations/others#tailwindcsstypography
