@@ -101,9 +101,13 @@ export const integ: IntegrationUserConfig = {
   // Add a random quote to the footer (default on homepage footer)
   // See: https://raselverse.vercel.app/docs/integrations/advanced#web-content-render
   quote: {
-  server: '',
-  target: () => ''
-},
+    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
+    // server: 'https://v1.hitokoto.cn/?c=i',
+    // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
+    // https://github.com/lukePeavey/quotable
+    server: 'https://api.quotable.io/quotes/random?maxLength=60',
+    target: `(data) => data[0].content || 'Error'`
+  },
   // Tailwindcss typography
   // See: https://raselverse.vercel.app/docs/integrations/others#tailwindcsstypography
   typography: {
