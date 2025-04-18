@@ -32,7 +32,7 @@ const GET = async (context: AstroGlobal) => {
   const blogUrls = blogPosts.map((post) => `
     <url>
       <loc>${site.origin}/blog/${post.id}</loc>
-      <lastmod>${new Date(post.data.publishDate).toISOString()}</lastmod>
+      <lastmod>${new Date(post.data.publishDate as string).toISOString()}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
     </url>
