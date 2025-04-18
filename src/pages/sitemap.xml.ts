@@ -1,54 +1,70 @@
 // src/pages/sitemap.xml.ts
 import type { AstroGlobal } from 'astro'
 import { getBlogCollection } from 'astro-pure/server'
-import config from 'virtual:config'
 
-// Type for static page configuration
 interface StaticPage {
   url: string
   lastmod?: Date
   changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
   priority?: number
+  type: 'static'
+}
+
+interface BlogPage {
+  url: string
+  lastmod: Date
+  changefreq: 'weekly'
+  priority: 0.8
+  type: 'blog'
+  data: {
+    heroImage?: {
+      src: string | { src: string }
+    }
+  }
 }
 
 const GET = async ({ site }: AstroGlobal) => {
   const baseUrl = site?.origin || import.meta.env.SITE
   const allPosts = await getBlogCollection()
-  const now = new Date().toISOString()
 
-  // Configure static pages with SEO parameters
   const staticPages: StaticPage[] = [
     {
+      type: 'static',
       url: '/',
       changefreq: 'daily',
       priority: 1.0,
       lastmod: new Date()
     },
     {
+      type: 'static',
       url: '/blog/',
       changefreq: 'daily',
       priority: 0.9,
       lastmod: allPosts[0]?.data.publishDate || new Date()
     },
     {
+      type: 'static',
       url: '/about/',
       changefreq: 'monthly',
       priority: 0.8,
-      lastmod: new Date('2023-01-01') // Set to your actual last modified date
+      lastmod: new Date('2023-01-01')
     },
     {
+      type: 'static',
       url: '/projects/',
       changefreq: 'weekly',
       priority: 0.8,
       lastmod: new Date()
     },
     {
+      type: 'static',
       url: '/links/',
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date()
     },
     {
+      type: 'static',
       url: '/docs/',
       changefreq: 'monthly',
       priority: 0.8,
@@ -56,37 +72,35 @@ const GET = async ({ site }: AstroGlobal) => {
     }
   ]
 
-  // Generate blog post URLs with SEO optimization
-  const blogUrls = allPosts.map(post => ({
+  const blogUrls: BlogPage[] = allPosts.map(post => ({
+    type: 'blog',
     url: `/blog/${post.id}/`,
-    lastmod: post.data.updateDate || post.data.publishDate,
+    lastmod: post.data.updatedDate || post.data.publishDate,
     changefreq: 'weekly',
-    priority: 0.8
+    priority: 0.8,
+    data: post.data
   }))
 
-  // Combine all URLs and sort by priority
   const allUrls = [...staticPages, ...blogUrls].sort((a, b) => 
     (b.priority || 0.5) - (a.priority || 0.5)
   )
 
-  // Generate XML content
   const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-            xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-            xmlns:xhtml="http://www.w3.org/1999/xhtml"
-            xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-            xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+            xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
       ${allUrls.map(entry => `
         <url>
           <loc>${baseUrl}${entry.url}</loc>
-          <lastmod>${(entry.lastmod || new Date()).toISOString()}</lastmod>
-          <changefreq>${entry.changefreq || 'weekly'}</changefreq>
-          <priority>${entry.priority || 0.5}</priority>
-          ${entry.url.startsWith('/blog/') ? `
+          <lastmod>${entry.lastmod.toISOString()}</lastmod>
+          <changefreq>${entry.changefreq}</changefreq>
+          <priority>${entry.priority}</priority>
+          ${entry.type === 'blog' && entry.data.heroImage ? `
           <image:image>
-            <image:loc>${typeof entry.data.heroImage?.src === 'string' 
-              ? entry.data.heroImage.src 
-              : entry.data.heroImage?.src.src}</image:loc>
+            <image:loc>${
+              typeof entry.data.heroImage.src === 'string' 
+                ? new URL(entry.data.heroImage.src, baseUrl).href
+                : new URL(entry.data.heroImage.src.src, baseUrl).href
+            }</image:loc>
           </image:image>
           ` : ''}
         </url>
