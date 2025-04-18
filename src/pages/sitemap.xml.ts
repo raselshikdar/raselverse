@@ -4,9 +4,9 @@ import { getBlogCollection } from 'astro-pure/server'
 
 interface StaticPage {
   url: string
-  lastmod?: Date
-  changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
-  priority?: number
+  lastmod: Date
+  changefreq: 'daily' | 'weekly' | 'monthly'
+  priority: number
   type: 'static'
 }
 
@@ -27,6 +27,7 @@ const GET = async ({ site }: AstroGlobal) => {
   const baseUrl = site?.origin || import.meta.env.SITE
   const allPosts = await getBlogCollection()
 
+  // Static pages with guaranteed lastmod dates
   const staticPages: StaticPage[] = [
     {
       type: 'static',
@@ -72,19 +73,22 @@ const GET = async ({ site }: AstroGlobal) => {
     }
   ]
 
+  // Blog posts with validated dates
   const blogUrls: BlogPage[] = allPosts.map(post => ({
     type: 'blog',
     url: `/blog/${post.id}/`,
-    lastmod: post.data.updatedDate || post.data.publishDate,
+    lastmod: post.data.updatedDate ?? post.data.publishDate,
     changefreq: 'weekly',
     priority: 0.8,
     data: post.data
   }))
 
+  // Combine and sort URLs
   const allUrls = [...staticPages, ...blogUrls].sort((a, b) => 
-    (b.priority || 0.5) - (a.priority || 0.5)
+    b.priority - a.priority
   )
 
+  // Generate XML with type-safe access
   const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
             xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
