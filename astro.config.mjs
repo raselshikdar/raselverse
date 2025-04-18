@@ -6,6 +6,9 @@ import AstroPureIntegration from 'astro-pure'
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
+// SITEMAP ADDITION START
+import sitemap from '@astrojs/sitemap'
+// SITEMAP ADDITION END
 
 // Others
 // import { visualizer } from 'rollup-plugin-visualizer'
@@ -55,6 +58,17 @@ export default defineConfig({
     // sitemap(),
     // mdx(),
     AstroPureIntegration(config),
+    // SITEMAP CONFIGURATION ADDITION START
+    sitemap({
+      customPages: [
+        'https://raselverse.vercel.app/blog',
+        'https://raselverse.vercel.app/about',
+        'https://raselverse.vercel.app/projects',
+        'https://raselverse.vercel.app/links',
+        'https://raselverse.vercel.app/docs'
+      ]
+    }),
+    // SITEMAP CONFIGURATION ADDITION END
     // (await import('@playform/compress')).default({
     //   SVG: false,
     //   Exclude: ['index.*.js']
